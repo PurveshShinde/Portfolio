@@ -55,7 +55,7 @@ const Terminal = () => {
       "Initializing JVM...",
       "Loading Spring Context...",
       "Connecting to Database...",
-      `Welcome, ${PROFILE.name}. Backend System ready.`
+      `Welcome, ${PROFILE.name}. System ready.`
     ];
 
     let currentDelay = 0;
@@ -141,7 +141,7 @@ const Terminal = () => {
         <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="text-primary-400 hover:underline">linkedin.com/in/purvesh</a>
       </div>
     ),
-    whoami: () => <span className="text-emerald-400 font-bold">guest@portfolio-backend</span>,
+    whoami: () => <span className="text-emerald-400 font-bold">guest@portfolio</span>,
     
     // HARRY POTTER EASTER EGGS
     lumos: () => {
@@ -269,7 +269,7 @@ const Terminal = () => {
           <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
           <div className="w-3 h-3 rounded-full bg-green-500/80" />
         </div>
-        <div className="ml-3 text-slate-500 text-xs font-medium">purvesh@server:~/backend</div>
+        <div className="ml-3 text-slate-500 text-xs font-medium">purvesh@server:~/portfolio</div>
       </div>
 
       {/* Terminal Output Area */}

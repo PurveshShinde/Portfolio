@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { PROJECTS } from '../constants';
-import { Github, ExternalLink, Code2, Layers } from 'lucide-react';
+import { Github, ExternalLink, Layers } from 'lucide-react';
 import { staggerContainer, fadeInUp } from '../utils/animations';
 import TiltCard from '../components/ui/TiltCard';
 
@@ -18,7 +18,7 @@ const Projects = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Featured Projects</h2>
           <p className="text-lg md:text-xl leading-8 text-slate-400">
-            A selection of my recent work in software development, showcasing robust backend architectures and intuitive interfaces.
+            A selection of my recent work in software development, showcasing robust software architectures and intuitive interfaces.
           </p>
         </motion.div>
 

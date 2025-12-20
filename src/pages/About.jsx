@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { PROFILE } from '../constants';
-import { Target, Cpu, Cloud, Code } from 'lucide-react';
+import { Target, Database, Cloud, Code } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 
 const About = () => {
@@ -45,8 +45,8 @@ const About = () => {
           >
              {[
                { icon: Code, title: "Java Engineer", desc: "Core Java & Spring Boot" },
-               { icon: Cpu, title: "Backend Systems", desc: "Microservices & APIs" },
-               { icon: Cloud, title: "Cloud Architecture", desc: "AWS & Docker Deployment" },
+               { icon: Database, title: "Database Mgmt", desc: "SQL & NoSQL Optimization" },
+               { icon: Cloud, title: "Cloud Deployment", desc: "AWS, Vercel & Firebase" },
                { icon: Target, title: "System Design", desc: "Scalable Solutions" }
              ].map((item, index) => (
                 <motion.div 

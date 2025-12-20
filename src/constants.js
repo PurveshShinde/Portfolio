@@ -1,6 +1,6 @@
 export const PROFILE = {
   name: "Purvesh Shinde",
-  title: "Java Engineer | Cloud & Distributed Systems",
+  title: "Software Engineer | Cloud & Distributed Systems",
   tagline: "Building scalable solutions with Java, Cloud Infrastructure, and Efficient Algorithms.",
   about: [
     "I am a Computer Science engineer dedicated to building robust software solutions. My expertise lies in designing efficient applications, optimizing database performance, and deploying scalable architectures.",
@@ -20,12 +20,16 @@ export const CONTACT = {
 
 export const SKILLS = [
   {
+    category: "Java Ecosystem",
+    items: ["Java 17/21", "Spring Boot 3", "Spring Cloud", "Hibernate/JPA", "REST APIs"]
+  },
+  {
     category: "Cloud & Deployment",
     items: ["AWS", "Vercel", "Firebase", "CI/CD Pipelines", "Linux"]
   },
   {
     category: "Databases",
-    items: ["SQL", "Firebase", "MongoDB", "Database Optimization", "Transaction Management"]
+    items: ["SQL", "MySQL", "MongoDB", "Database Optimization", "Transaction Management"]
   },
   {
     category: "Languages & Core",
@@ -70,7 +74,7 @@ export const PROJECTS = [
       "Integrated Python-based NLP models with a Java backend via REST endpoints.",
       "Ensured high availability and fault tolerance for concurrent user requests."
     ],
-    techStack: ["Python", "Flask", "REST APIs", "Backend Integration"]
+    techStack: ["Python", "Flask", "REST APIs", "Integration"]
   }
 ];
 

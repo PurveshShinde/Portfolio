@@ -32,16 +32,16 @@ const Home = () => {
               <motion.div variants={fadeInUp} className="mb-8">
                 <span className="inline-flex items-center rounded-full bg-primary-400/10 px-4 py-1.5 text-sm font-semibold text-primary-400 ring-1 ring-inset ring-primary-400/20 backdrop-blur-md">
                   <span className="w-2 h-2 rounded-full bg-primary-400 mr-2 animate-pulse"></span>
-                  Open to Backend Roles
+                  Open to Engineering Roles
                 </span>
               </motion.div>
               
               <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
-                Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-indigo-400">Scalable</span> Systems
+                Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-indigo-400">Scalable</span> Solutions
               </motion.h1>
               
               <motion.p variants={fadeInUp} className="text-xl leading-8 text-slate-300 mb-8 max-w-lg">
-                I'm {PROFILE.name}, a Java Backend Engineer specializing in high-performance APIs, microservices, and distributed cloud architecture.
+                I'm {PROFILE.name}, a Software Engineer specializing in efficient algorithms, cloud infrastructure, and scalable applications.
               </motion.p>
               
               <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-6">
