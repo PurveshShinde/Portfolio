@@ -61,7 +61,7 @@ const Terminal: React.FC = () => {
       "Initializing JVM...",
       "Loading Spring Context...",
       "Connecting to Database...",
-      `Welcome, ${PROFILE.name}. Backend System ready.`
+      `Welcome, Visitor. Backend System ready.`
     ];
 
     let currentDelay = 0;
