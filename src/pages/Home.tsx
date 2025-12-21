@@ -5,6 +5,10 @@ import { PROFILE, CONTACT } from '../constants';
 import Terminal from '../components/Terminal';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 
+// ✅ IMPORT RESUME PDF
+// Ensure the file is at: src/components/assets/Purvesh_Shinde_Resume.pdf
+import resumePdf from "../components/assets/Purvesh Shinde_Resume_Java.pdf";
+
 // Custom Hook for Typewriter Effect
 const useTypewriter = (words: string[], typingSpeed = 150, deletingSpeed = 100, pauseDuration = 2000) => {
   const [text, setText] = useState('');
@@ -114,9 +118,12 @@ const Home = () => {
                   View Architecture
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
+                
+                {/* ✅ UPDATED RESUME LINK */}
                 <a
-                  href="/resume.pdf" // Update with real path
+                  href={resumePdf} 
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-base font-semibold leading-6 text-white hover:text-primary-400 transition-colors flex items-center gap-2"
                 >
                   <Download className="h-4 w-4" /> Java Developer Resume
