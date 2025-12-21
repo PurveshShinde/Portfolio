@@ -1,9 +1,69 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { SKILLS } from '../constants';
 import { staggerContainer, fadeInUp } from '../utils/animations';
 import TiltCard from '../components/ui/TiltCard';
+import { 
+  Terminal, 
+  Cpu, 
+  Server, 
+  Database, 
+  Globe, 
+  BarChart, 
+  GitBranch,
+  BookOpen,
+  Languages
+} from 'lucide-react';
 
 const Skills = () => {
+  // ✅ FINAL STRUCTURE: Fully aligned with your "Clean Structure" + Spoken Languages
+  const SKILLS_DATA = [
+    {
+      category: "Programming Languages",
+      icon: Terminal,
+      items: ["Java", "JavaScript", "SQL (Basic)", "Python (Basic)"]
+    },
+    {
+      category: "Core CS Fundamentals",
+      icon: Cpu,
+      items: ["Object-Oriented Programming", "Data Structures", "Algorithms", "Problem Solving"]
+    },
+    {
+      category: "Backend Fundamentals",
+      icon: Server,
+      items: ["REST APIs", "Database Integration", "Basic Authentication", "Modular Code Design", "JSON / XML Processing"]
+    },
+    {
+      category: "Databases",
+      icon: Database,
+      items: ["MySQL", "Firebase Firestore"]
+    },
+    {
+      category: "Web Technologies",
+      icon: Globe,
+      items: ["HTML","React (Basic)", "CSS", "React Native"]
+    },
+    {
+      category: "Data & Analytics",
+      icon: BarChart,
+      items: ["Pandas", "Data Preprocessing", "Data Visualization", "Power BI"]
+    },
+    {
+      category: "Tools & Development",
+      icon: GitBranch,
+      items: ["Git", "GitHub", "VS Code", "Postman"]
+    },
+    {
+      category: "Learning Focus",
+      icon: BookOpen,
+      items: ["Spring Boot","MongoDB (Learning)", "Java Backend Development"]
+    },
+    {
+      category: "Spoken Languages",
+      icon: Languages,
+      items: ["English (Professional)", "Hindi (Native)", "Marathi (Native)", "Japanese (Beginner)", "German (Beginner)"]
+    }
+  ];
+
   return (
     <div className="min-h-screen py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -16,7 +76,7 @@ const Skills = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Technical Arsenal</h2>
           <p className="text-lg md:text-xl leading-8 text-slate-400">
-            A comprehensive overview of the languages, frameworks, and tools I utilize to build scalable solutions.
+            Core technical skills, tools, and learning areas aligned with Java fresher and intern roles.
           </p>
         </motion.div>
 
@@ -27,7 +87,7 @@ const Skills = () => {
           viewport={{ once: true, margin: "-50px" }}
           className="mx-auto grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-none lg:grid-cols-3"
         >
-          {SKILLS.map((skillGroup, index) => (
+          {SKILLS_DATA.map((skillGroup, index) => (
             <motion.div key={index} variants={fadeInUp} className="h-full">
               <TiltCard className="h-full">
                 <div className="flex flex-col h-full bg-slate-900/60 backdrop-blur-md rounded-3xl p-8 border border-slate-800 shadow-xl shadow-slate-900/50 overflow-hidden relative group">
@@ -37,9 +97,10 @@ const Skills = () => {
 
                   <div className="relative z-10 flex flex-col h-full">
                     <h3 className="text-xl font-bold leading-8 text-white mb-6 flex items-center gap-3">
-                      <span className="w-1.5 h-6 bg-primary-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"></span>
+                      <skillGroup.icon className="w-6 h-6 text-primary-500" />
                       {skillGroup.category}
                     </h3>
+                    
                     <div className="flex flex-wrap gap-2.5">
                       {skillGroup.items.map((skill) => (
                         <span

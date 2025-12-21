@@ -1,9 +1,39 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { PROFILE } from '../constants';
-import { Target, Cpu, Cloud, Code } from 'lucide-react';
+import { Code, Server, GitBranch, BookOpen } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 
 const About = () => {
+  // ✅ REFINED, SHORTENED TEXT (2 Paragraphs Max)
+  const ABOUT_TEXT = [
+    "I am a Computer Science engineering student and Java Developer (Fresher / Intern level) with a strong foundation in core Java, object-oriented programming, DSA, and backend development fundamentals.",
+    "I have worked on projects involving REST APIs and database integration, and I am currently focused on learning Spring Boot and strengthening my backend skills through real-world projects."
+  ];
+
+  // Safe Tags (Kept these as they are perfect for your level)
+  const SKILL_CARDS = [
+    { 
+      icon: Code, 
+      title: "Java Engineer", 
+      desc: "Core Java & OOP" 
+    },
+    { 
+      icon: Server, 
+      title: "Backend Fundamentals", 
+      desc: "REST APIs • Database Integration" 
+    },
+    { 
+      icon: GitBranch, 
+      title: "Tools & Practices", 
+      desc: "Git • GitHub • Debugging" 
+    },
+    { 
+      icon: BookOpen, 
+      title: "Learning Focus", 
+      desc: "Spring Boot • Backend Systems" 
+    }
+  ];
+
   return (
     <div className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -21,6 +51,7 @@ const About = () => {
         </motion.div>
 
         <div className="mx-auto mt-12 max-w-2xl lg:max-w-4xl">
+          {/* Main Text Section */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -28,13 +59,14 @@ const About = () => {
             variants={staggerContainer}
             className="bg-slate-900/50 backdrop-blur-md rounded-2xl p-8 border border-slate-800 shadow-sm"
           >
-            {PROFILE.about.map((paragraph, index) => (
+            {ABOUT_TEXT.map((paragraph, index) => (
               <motion.p variants={fadeInUp} key={index} className="mb-4 text-lg leading-8 text-slate-300 last:mb-0">
                 {paragraph}
               </motion.p>
             ))}
           </motion.div>
 
+          {/* Skills Grid Section */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -42,12 +74,7 @@ const About = () => {
             variants={staggerContainer}
             className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {[
-              { icon: Code, title: "Java Engineer", desc: "Core Java & Spring Boot" },
-              { icon: Cpu, title: "Backend Systems", desc: "Microservices & APIs" },
-              { icon: Cloud, title: "Cloud Architecture", desc: "AWS & Docker Deployment" },
-              { icon: Target, title: "System Design", desc: "Scalable Solutions" }
-            ].map((item, index) => (
+            {SKILL_CARDS.map((item, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}

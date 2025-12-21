@@ -1,12 +1,90 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { PROJECTS } from '../constants';
-import { Github, ExternalLink, Layers } from 'lucide-react';
+import { Github, ExternalLink, Layers, Code, Brain, Users, Music } from 'lucide-react';
 import { staggerContainer, fadeInUp } from '../utils/animations';
 import TiltCard from '../components/ui/TiltCard';
 
 const Projects = () => {
+  const PROJECTS_DATA = [
+    {
+      title: "GitMatch — Developer Collaboration Platform",
+      category: "Ongoing Development",
+      icon: Users,
+      description: [
+        "GitMatch is an ongoing project focused on helping developers discover and connect with suitable teammates for projects based on skills and interests.",
+        "I am currently working on backend logic, REST API design, user onboarding flows, and database integration."
+      ],
+      techStack: ["Node.js", "Express", "MongoDB (Learning)", "REST APIs"],
+      // ✅ GitMatch: Only Live Demo is available
+      links: {
+        code: null, 
+        live: "#" 
+      }
+    },
+    {
+      title: "Notes Management System",
+      category: "Full-Stack Web Application",
+      icon: Layers,
+      description: [
+        "A web-based notes management system that allows users to create, update, categorize, and manage personal notes.",
+        "The application includes user authentication, category management, and complete CRUD functionality."
+      ],
+      techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+      // ✅ Notes: Code is clickable (placeholder), Live is disabled
+      links: {
+        code: "#", 
+        live: null 
+      }
+    },
+    {
+      title: "Mental Health Care Chatbot",
+      category: "Prabal Hackathon",
+      icon: Brain,
+      description: [
+        "Developed a chatbot-based application during the Prabal Hackathon to assist users with mental health-related queries.",
+        "Worked in a team to design conversational workflows and integrate backend logic."
+      ],
+      techStack: ["Python", "Chatbot Logic", "Backend Integration"],
+      // ✅ Mental Health: Both disabled
+      links: {
+        code: null,
+        live: null
+      }
+    },
+    {
+      title: "Emotion-Based Music Recommendation",
+      category: "ML-Based Application",
+      icon: Music,
+      description: [
+        "Built a system that recommends music based on detected user emotions.",
+        "The project involved data preprocessing, emotion classification, and recommendation logic."
+      ],
+      techStack: ["Python", "Pandas", "Machine Learning"],
+      // ✅ Emotion Music: Both available
+      links: {
+        code: "#",
+        live: "#"
+      }
+    },
+    {
+      title: "Taskify",
+      category: "Hackathon Project",
+      icon: Code,
+      description: [
+        "A task management application developed during a hackathon to help users organize and track daily tasks.",
+        "Collaborated with teammates to design features and deliver a working prototype."
+      ],
+      techStack: ["JavaScript", "Web Technologies"],
+      // ✅ Taskify: Both available
+      links: {
+        code: "#",
+        live: "#"
+      }
+    }
+  ];
+
   return (
-    <div className="min-h-screen py-24 sm:py-32">
+    <div className="min-h-screen py-24 sm:py-32" id="projects">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -17,7 +95,7 @@ const Projects = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Featured Projects</h2>
           <p className="text-lg md:text-xl leading-8 text-slate-400">
-            A selection of my recent work in software development, showcasing robust backend architectures and intuitive interfaces.
+            A selection of academic, personal, and hackathon projects demonstrating backend fundamentals, problem solving, and real-world application development.
           </p>
         </motion.div>
 
@@ -28,7 +106,7 @@ const Projects = () => {
           variants={staggerContainer}
           className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-3"
         >
-          {PROJECTS.map((project, index) => (
+          {PROJECTS_DATA.map((project, index) => (
             <motion.div key={index} variants={fadeInUp} className="h-full">
               <TiltCard className="h-full">
                 <div className="flex flex-col h-full bg-slate-900/60 backdrop-blur-md rounded-3xl p-8 border border-slate-800 shadow-xl shadow-slate-900/50 overflow-hidden relative group">
@@ -40,7 +118,7 @@ const Projects = () => {
                     <div>
                       <div className="flex items-center justify-between mb-6">
                         <div className="p-3 bg-slate-800 rounded-2xl">
-                          <Layers className="h-6 w-6 text-primary-400" />
+                          <project.icon className="h-6 w-6 text-primary-400" />
                         </div>
                         <span className="text-xs font-bold tracking-wider uppercase text-slate-400 bg-slate-800 px-3 py-1 rounded-full">
                           {project.category}
@@ -71,12 +149,37 @@ const Projects = () => {
                       </div>
 
                       <div className="flex gap-4 pt-6 border-t border-slate-800">
-                        <button className="flex-1 inline-flex justify-center items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-200 transition-colors opacity-50 cursor-not-allowed">
-                          <Github className="h-4 w-4" /> Code
-                        </button>
-                        <button className="flex-1 inline-flex justify-center items-center gap-2 rounded-lg bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white border border-slate-700 shadow-sm hover:bg-slate-700 transition-colors opacity-50 cursor-not-allowed">
-                          <ExternalLink className="h-4 w-4" /> Live
-                        </button>
+                        {/* CODE BUTTON LOGIC */}
+                        {project.links.code ? (
+                          <a 
+                            href={project.links.code}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 inline-flex justify-center items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-200 transition-colors"
+                          >
+                            <Github className="h-4 w-4" /> Code
+                          </a>
+                        ) : (
+                          <button disabled className="flex-1 inline-flex justify-center items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm opacity-50 cursor-not-allowed">
+                            <Github className="h-4 w-4" /> Code
+                          </button>
+                        )}
+
+                        {/* LIVE BUTTON LOGIC */}
+                        {project.links.live ? (
+                          <a 
+                            href={project.links.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 inline-flex justify-center items-center gap-2 rounded-lg bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white border border-slate-700 shadow-sm hover:bg-slate-700 transition-colors"
+                          >
+                            <ExternalLink className="h-4 w-4" /> Live
+                          </a>
+                        ) : (
+                          <button disabled className="flex-1 inline-flex justify-center items-center gap-2 rounded-lg bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white border border-slate-700 shadow-sm opacity-50 cursor-not-allowed">
+                            <ExternalLink className="h-4 w-4" /> Live
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>
