@@ -1,3 +1,7 @@
+/// <reference types="vite/client" />
+
+// 👆 This line above fixes the "Cannot find module" errors for images!
+
 export interface Profile {
     name: string;
     title: string;
