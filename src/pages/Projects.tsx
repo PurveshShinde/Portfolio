@@ -15,7 +15,6 @@ const Projects = () => {
         "I am currently working on backend logic, REST API design, user onboarding flows, and database integration."
       ],
       techStack: ["Node.js", "Express", "MongoDB (Learning)", "REST APIs"],
-      // ✅ GitMatch: Only Live Demo is available
       links: {
         code: null, 
         live: "#" 
@@ -30,9 +29,8 @@ const Projects = () => {
         "The application includes user authentication, category management, and complete CRUD functionality."
       ],
       techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
-      // ✅ Notes: Code is clickable (placeholder), Live is disabled
       links: {
-        code: "#", 
+        code: "https://github.com/PurveshShinde/Notes_Management_System", 
         live: null 
       }
     },
@@ -45,7 +43,6 @@ const Projects = () => {
         "Worked in a team to design conversational workflows and integrate backend logic."
       ],
       techStack: ["Python", "Chatbot Logic", "Backend Integration"],
-      // ✅ Mental Health: Both disabled
       links: {
         code: null,
         live: null
@@ -60,25 +57,23 @@ const Projects = () => {
         "The project involved data preprocessing, emotion classification, and recommendation logic."
       ],
       techStack: ["Python", "Pandas", "Machine Learning"],
-      // ✅ Emotion Music: Both available
       links: {
-        code: "#",
-        live: "#"
+        code: "https://github.com/PurveshShinde/Emotion-based-music-recommendation-system",
+        live: "https://emotion-music-recommendation.streamlit.app/"
       }
     },
     {
       title: "Taskify",
-      category: "Hackathon Project",
+      category: "MERN Stack | Production",
       icon: Code,
       description: [
-        "A task management application developed during a hackathon to help users organize and track daily tasks.",
-        "Collaborated with teammates to design features and deliver a working prototype."
+        "A comprehensive task management system re-architected from a hackathon concept into a production-grade application.",
+        "Features secure JWT authentication, real-time collaboration, and type-safe architecture using TypeScript across the full stack."
       ],
-      techStack: ["JavaScript", "Web Technologies"],
-      // ✅ Taskify: Both available
+      techStack: ["React", "TypeScript", "Node.js", "MongoDB", "Tailwind"],
       links: {
-        code: "#",
-        live: "#"
+        code: "https://github.com/PurveshShinde/Taskify",
+        live: "https://taskify-webapp-pro.vercel.app/"
       }
     }
   ];
@@ -109,9 +104,10 @@ const Projects = () => {
           {PROJECTS_DATA.map((project, index) => (
             <motion.div key={index} variants={fadeInUp} className="h-full">
               <TiltCard className="h-full">
-                <div className="flex flex-col h-full bg-slate-900/60 backdrop-blur-md rounded-3xl p-8 border border-slate-800 shadow-xl shadow-slate-900/50 overflow-hidden relative group">
+                {/* UPDATED LINE BELOW: Removed backdrop-blur-md and made bg solid */}
+                <div className="flex flex-col h-full bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-xl shadow-slate-900/50 overflow-hidden relative group">
 
-                  {/* Background Gradient Hover */}
+                  {/* Background Gradient Hover - KEEPS HOVER EFFECT */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative z-10 flex flex-col h-full justify-between">
