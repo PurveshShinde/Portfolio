@@ -12,12 +12,12 @@ const Projects = () => {
       icon: Users,
       description: [
         "GitMatch is an ongoing project focused on helping developers discover and connect with suitable teammates for projects based on skills and interests.",
-        "I am currently working on backend logic, REST API design, user onboarding flows, and database integration."
+        "I am currently working on backend logic, REST API design, user onboarding flows, and database integration using a modular approach."
       ],
       techStack: ["Node.js", "Express", "MongoDB (Learning)", "REST APIs"],
       links: {
-        code: null, 
-        live: "#" 
+        code: null,
+        live: "#"
       }
     },
     {
@@ -25,13 +25,14 @@ const Projects = () => {
       category: "Full-Stack Web Application",
       icon: Layers,
       description: [
-        "A web-based notes management system that allows users to create, update, categorize, and manage personal notes.",
+        // ✅ UPDATED: Added "with clean separation of concerns"
+        "A web-based notes management system designed to create, update, categorize, and manage personal notes with clean separation of concerns.",
         "The application includes user authentication, category management, and complete CRUD functionality."
       ],
       techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
       links: {
-        code: "https://github.com/PurveshShinde/Notes_Management_System", 
-        live: null 
+        code: "https://github.com/PurveshShinde/Notes_Management_System",
+        live: null
       }
     },
     {
@@ -102,12 +103,16 @@ const Projects = () => {
           className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-3"
         >
           {PROJECTS_DATA.map((project, index) => (
-            <motion.div key={index} variants={fadeInUp} className="h-full">
+            <motion.div
+              key={index}
+              variants={fadeInUp}
+              className="h-full relative hover:z-50" // ✅ FIX: Added Z-Index fix here too
+            >
               <TiltCard className="h-full">
-                {/* UPDATED LINE BELOW: Removed backdrop-blur-md and made bg solid */}
-                <div className="flex flex-col h-full bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-xl shadow-slate-900/50 overflow-hidden relative group">
+                {/* ✅ FIX: Added 'transform-gpu' to prevent flickering on hover */}
+                <div className="flex flex-col h-full bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-xl shadow-slate-900/50 overflow-hidden relative group transform-gpu">
 
-                  {/* Background Gradient Hover - KEEPS HOVER EFFECT */}
+                  {/* Background Gradient Hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative z-10 flex flex-col h-full justify-between">
@@ -147,7 +152,7 @@ const Projects = () => {
                       <div className="flex gap-4 pt-6 border-t border-slate-800">
                         {/* CODE BUTTON LOGIC */}
                         {project.links.code ? (
-                          <a 
+                          <a
                             href={project.links.code}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -163,7 +168,7 @@ const Projects = () => {
 
                         {/* LIVE BUTTON LOGIC */}
                         {project.links.live ? (
-                          <a 
+                          <a
                             href={project.links.live}
                             target="_blank"
                             rel="noopener noreferrer"
