@@ -34,7 +34,7 @@ export interface Experience {
     title: string;
     organization: string;
     period?: string;
-    type: 'Work' | 'Project' | 'Hackathon';
+    type: 'Work' | 'Project' | 'Hackathon' | 'Internship';
     description: string[];
 }
 

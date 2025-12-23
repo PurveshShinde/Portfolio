@@ -2,35 +2,35 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeInUp } from '../utils/animations';
 import TiltCard from '../components/ui/TiltCard';
-import { 
-  Terminal, 
-  Cpu, 
-  Server, 
-  Database, 
-  Globe, 
-  BarChart, 
+import {
+  Terminal,
+  Cpu,
+  Server,
+  Database,
+  Globe,
+  BarChart,
   GitBranch,
   BookOpen,
   Languages
 } from 'lucide-react';
 
 const Skills = () => {
-  // ✅ FINAL STRUCTURE: Fully aligned with your "Clean Structure" + Spoken Languages
+  // ✅ FINAL STRUCTURE: Java-First, Fresher-Aligned
   const SKILLS_DATA = [
     {
-      category: "Programming Languages",
+      category: "Primary Stack",
       icon: Terminal,
-      items: ["Java", "JavaScript", "SQL (Basic)", "Python (Basic)"]
+      items: ["Java", "Object-Oriented Programming", "Data Structures", "Algorithms"]
     },
     {
-      category: "Core CS Fundamentals",
+      category: "Supporting Languages",
       icon: Cpu,
-      items: ["Object-Oriented Programming", "Data Structures", "Algorithms", "Problem Solving"]
+      items: ["JavaScript", "SQL (Basic)", "Python (Basic)"]
     },
     {
       category: "Backend Fundamentals",
       icon: Server,
-      items: ["REST APIs", "Database Integration", "Basic Authentication", "Modular Code Design", "JSON / XML Processing"]
+      items: ["REST APIs", "Database Integration", "Authentication Basics", "Modular Code Design", "JSON / XML Processing"]
     },
     {
       category: "Databases",
@@ -40,7 +40,7 @@ const Skills = () => {
     {
       category: "Web Technologies",
       icon: Globe,
-      items: ["HTML","React (Basic)", "CSS", "React Native"]
+      items: ["HTML", "CSS", "React (Basic)", "React Native"]
     },
     {
       category: "Data & Analytics",
@@ -55,7 +55,7 @@ const Skills = () => {
     {
       category: "Learning Focus",
       icon: BookOpen,
-      items: ["Spring Boot","MongoDB (Learning)", "Java Backend Development"]
+      items: ["Spring Boot", "MongoDB (Learning)", "Java Backend Development"]
     },
     {
       category: "Spoken Languages",
@@ -88,19 +88,26 @@ const Skills = () => {
           className="mx-auto grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-none lg:grid-cols-3"
         >
           {SKILLS_DATA.map((skillGroup, index) => (
-            <motion.div key={index} variants={fadeInUp} className="h-full">
+            <motion.div
+              key={index}
+              variants={fadeInUp}
+              className="h-full relative hover:z-50" // ✅ FIX: Ensures active card is always on top
+            >
               <TiltCard className="h-full">
-                <div className="flex flex-col h-full bg-slate-900/60 backdrop-blur-md rounded-3xl p-8 border border-slate-800 shadow-xl shadow-slate-900/50 overflow-hidden relative group">
+                {/* ✅ FIX: Removed 'backdrop-blur-md' and used solid opacity 'bg-slate-900/90'.
+                   Added 'transform-gpu' to stop the disappearing glitch.
+                */}
+                <div className="flex flex-col h-full bg-slate-900/90 rounded-3xl p-8 border border-slate-800 shadow-xl shadow-slate-900/50 overflow-hidden relative group transform-gpu">
 
                   {/* Background Gradient Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative z-10 flex flex-col h-full">
                     <h3 className="text-xl font-bold leading-8 text-white mb-6 flex items-center gap-3">
                       <skillGroup.icon className="w-6 h-6 text-primary-500" />
                       {skillGroup.category}
                     </h3>
-                    
+
                     <div className="flex flex-wrap gap-2.5">
                       {skillGroup.items.map((skill) => (
                         <span

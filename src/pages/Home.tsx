@@ -6,7 +6,7 @@ import Terminal from '../components/Terminal';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 
 // ✅ IMPORT RESUME PDF
-// Ensure the file is at: src/components/assets/Purvesh_Shinde_Resume.pdf
+// Ensure the file is at: src/components/assets/Purvesh Shinde_Resume_Java.pdf
 import resumePdf from "../components/assets/Purvesh Shinde_Resume_Java.pdf";
 
 // Custom Hook for Typewriter Effect
@@ -48,7 +48,11 @@ const useTypewriter = (words: string[], typingSpeed = 150, deletingSpeed = 100, 
 };
 
 const Home = () => {
-  const typewrittenText = useTypewriter(["Developer", "Backend Engineer"], 100, 50, 2000);
+  // ✅ CHANGE 1: Updated roles to be fresher-safe
+  // Note: I used "Developer" (not "Java Developer") in the list because the word "Java" 
+  // is already hardcoded in the <h1> tag below. This ensures it reads "Java Developer" 
+  // instead of "Java Java Developer".
+  const typewrittenText = useTypewriter(["Software Developer", "Developer"], 100, 50, 2000);
 
   const scrollToProjects = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -82,18 +86,18 @@ const Home = () => {
 
               {/* LAYOUT FIX: INVISIBLE SKELETON STRATEGY 
                   1. The <h1> is 'relative'.
-                  2. We render "Java Backend Engineer" (the longest text) as an INVISIBLE block (opacity-0).
+                  2. We render "Java Software Developer" (the longest text) as an INVISIBLE block (opacity-0).
                      This forces the browser to reserve the full height (2 lines on mobile) immediately.
                      This pushes the "About" section down permanently.
                   3. The visible typing text is positioned 'absolute' on top of it.
               */}
-              <motion.h1 
-                variants={fadeInUp} 
+              <motion.h1
+                variants={fadeInUp}
                 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 relative"
               >
-                {/* INVISIBLE SKELETON - Reserves Height */}
+                {/* ✅ CHANGE 2: Updated Skeleton to match new longest string */}
                 <span className="opacity-0 select-none pointer-events-none block">
-                  Java Backend Engineer
+                  Java Software Developer
                 </span>
 
                 {/* VISIBLE ANIMATION - Overlay */}
@@ -118,10 +122,10 @@ const Home = () => {
                   View Architecture
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
-                
-                {/* ✅ UPDATED RESUME LINK */}
+
+                {/* RESUME LINK */}
                 <a
-                  href={resumePdf} 
+                  href={resumePdf}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-base font-semibold leading-6 text-white hover:text-primary-400 transition-colors flex items-center gap-2"

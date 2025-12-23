@@ -12,25 +12,25 @@ const About = () => {
 
   // Safe Tags (Kept these as they are perfect for your level)
   const SKILL_CARDS = [
-    { 
-      icon: Code, 
-      title: "Java Engineer", 
-      desc: "Core Java & OOP" 
+    {
+      icon: Code,
+      title: "Java Developer",
+      desc: "Core Java & OOP"
     },
-    { 
-      icon: Server, 
-      title: "Backend Fundamentals", 
-      desc: "REST APIs • Database Integration" 
+    {
+      icon: Server,
+      title: "Backend Fundamentals",
+      desc: "REST APIs • Database Integration"
     },
-    { 
-      icon: GitBranch, 
-      title: "Tools & Practices", 
-      desc: "Git • GitHub • Debugging" 
+    {
+      icon: GitBranch,
+      title: "Tools & Practices",
+      desc: "Git • GitHub • Debugging"
     },
-    { 
-      icon: BookOpen, 
-      title: "Learning Focus", 
-      desc: "Spring Boot • Backend Systems" 
+    {
+      icon: BookOpen,
+      title: "Learning Focus",
+      desc: "Spring Boot • Backend Systems"
     }
   ];
 
@@ -87,6 +87,47 @@ const About = () => {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* ✅ AI-Assisted Development Section (Restored) */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeInUp}
+            className="mt-16 bg-slate-900/60 backdrop-blur-md rounded-2xl p-8 border border-primary-500/20 shadow-lg"
+          >
+            <h3 className="text-xl font-bold text-white mb-2">
+              AI-Assisted Development
+            </h3>
+            <p className="text-sm text-primary-400 mb-4">
+              Productivity Multiplier
+            </p>
+
+            <p className="text-slate-300 mb-4">
+              I actively use AI tools as a productivity amplifier for:
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+              {[
+                "Rapid boilerplate generation",
+                "Debugging and edge-case analysis",
+                "Refactoring and code optimization",
+                "Learning new APIs and frameworks"
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-center gap-2 text-slate-300">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <p className="text-sm text-slate-400 italic border-l-2 border-primary-500/40 pl-4">
+              This allows me to deliver features faster while maintaining code quality
+              and correctness. Final design decisions, logic, and validation are always
+              done by me.
+            </p>
+          </motion.div>
+
         </div>
       </div>
     </div>

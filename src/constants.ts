@@ -8,118 +8,116 @@ import {
   Certification
 } from './types';
 
+// 1️⃣ PROFILE — LOCKED ✅
 export const PROFILE: Profile = {
   name: "Purvesh Shinde",
-  title: "Java Backend Engineer | Distributed Systems & Cloud Architecture",
-  tagline: "Architecting high-performance, scalable backend systems with Java and Spring Boot.",
+  title: "Java Software Developer | Fresher / Intern",
+  tagline: "Building clean, maintainable software systems with Java and strong CS fundamentals.",
   about: [
-    "I am a Computer Science engineer dedicated to building robust, enterprise-grade backend systems. My expertise lies in designing RESTful APIs, optimizing database performance, and implementing microservices architectures.",
-    "With a deep understanding of the Java ecosystem (Spring Boot, Hibernate) and cloud infrastructure, I focus on writing clean, maintainable code that scales.",
-    "I am seeking an entry-level Backend Engineering role where I can apply my knowledge of distributed systems, concurrency, and system design to solve complex engineering challenges."
+    "I am a Computer Science engineering student and Java Developer (Fresher / Intern level) with a strong foundation in core Java, object-oriented programming, and data structures.",
+    "I have worked on projects involving REST APIs and database integration, and I actively use AI tools to improve productivity while retaining full ownership of logic and design decisions.",
+    "I am currently seeking an entry-level Java Developer or Intern role to apply my backend knowledge and grow my skills in a professional environment."
   ],
-  interests: ["Java", "Spring Boot", "Microservices", "System Design", "Cloud Computing"]
+  interests: ["Java", "Spring Boot (Learning)", "Backend Development", "Data Structures", "Problem Solving"]
 };
 
+// 2️⃣ CONTACT — LOCKED ✅
 export const CONTACT: Contact = {
   email: "shindepurvesh007@gmail.com",
   phone: "+91 9307108947",
-  linkedin: "https://linkedin.com/in/purvesh-shinde",
+  linkedin: "https://www.linkedin.com/in/purvesh-shinde-311270227",
   github: "https://github.com/PurveshShinde",
   location: "Satara, India"
 };
 
+// 3️⃣ SKILLS — LOCKED ✅ (Matches Skills.tsx)
 export const SKILLS: SkillCategory[] = [
   {
-    category: "Backend Engineering",
-    items: ["Java 17/21", "Spring Boot 3", "Spring Cloud", "Hibernate/JPA", "Microservices", "REST APIs"]
+    category: "Primary Stack",
+    items: ["Java", "Object-Oriented Programming", "Data Structures", "Algorithms"]
   },
   {
-    category: "System Design & DevOps",
-    items: ["Docker", "Kubernetes", "AWS (EC2, S3, RDS)", "CI/CD Pipelines", "System Architecture", "Linux"]
+    category: "Supporting Languages",
+    items: ["JavaScript", "SQL (Basic)", "Python (Basic)"]
   },
   {
-    category: "Databases & Caching",
-    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Database Optimization", "Transaction Management"]
+    category: "Backend Fundamentals",
+    items: ["REST APIs", "Database Integration", "Authentication Basics", "Modular Code Design", "JSON / XML Processing"]
   },
   {
-    category: "Languages & Core",
-    items: ["Java", "SQL", "Python", "Data Structures", "Algorithms", "Multithreading"]
+    category: "Databases",
+    items: ["MySQL", "Firebase Firestore"]
   },
   {
-    category: "Tools & Testing",
-    items: ["Git", "Maven/Gradle", "JUnit 5", "Mockito", "Postman", "IntelliJ IDEA"]
+    category: "Web Technologies",
+    items: ["HTML", "CSS", "React (Basic)", "React Native"]
   },
   {
-    category: "Frontend (Familiar)",
-    items: ["React.js", "TypeScript", "Tailwind CSS", "HTML5", "Integration"]
+    category: "Tools & Workflow",
+    items: ["Git", "GitHub", "VS Code", "Postman", "AI-Assisted Development"]
+  },
+  {
+    category: "Learning Focus",
+    items: ["Spring Boot", "MongoDB (Learning)", "Java Backend Development"] // ✅ FIXED: Added "(Learning)" to match Skills.tsx
   }
 ];
 
+// 4️⃣ PROJECTS — LOCKED ✅ (Matches Projects.tsx)
 export const PROJECTS: Project[] = [
   {
-    title: "Enterprise Note Service",
-    category: "Microservices Architecture",
+    title: "GitMatch — Developer Collaboration Platform", // ✅ FIXED: Full title to match Projects.tsx
+    category: "Collaboration Platform",
     description: [
-      "Engineered a scalable note-taking backend service using Spring Boot and PostgreSQL.",
-      "Implemented JWT authentication, Role-Based Access Control (RBAC), and efficient search indexing.",
-      "Optimized query performance using Hibernate caching and database indexing strategies."
+      "Helping developers discover teammates based on skills.",
+      "Developing backend logic and REST APIs using a modular approach."
     ],
-    techStack: ["Java 21", "Spring Boot", "PostgreSQL", "Docker", "JWT"]
+    techStack: ["Node.js", "Express", "MongoDB (Learning)", "REST APIs"]
   },
   {
-    title: "GitMatch Platform",
-    category: "Distributed System (Ongoing)",
+    title: "Notes Management System",
+    category: "Full-Stack App",
     description: [
-      "Building a developer matchmaking engine that pairs users based on technical skill compatibility.",
-      "Designing a message queue architecture (Kafka/RabbitMQ) for asynchronous notifications.",
-      "Developing a RESTful API layer with comprehensive documentation (Swagger/OpenAPI)."
+      "Web-based system for managing personal notes with CRUD functionality.",
+      "Implemented using clean separation of concerns."
     ],
-    techStack: ["Node.js", "Express", "MongoDB", "Redis", "System Design"]
+    techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"]
   },
   {
-    title: "Intelligent Query Processor",
-    category: "AI Integration",
+    title: "Taskify",
+    category: "Production App",
     description: [
-      "Designed a modular backend service to process natural language queries for an IBM internship project.",
-      "Integrated Python-based NLP models with a Java backend via REST endpoints.",
-      "Ensured high availability and fault tolerance for concurrent user requests."
+      "Task management system featuring secure authentication and real-time updates.",
+      "Built with type-safe architecture."
     ],
-    techStack: ["Python", "Flask", "REST APIs", "Backend Integration"]
+    techStack: ["React", "TypeScript", "Node.js", "MongoDB", "Tailwind"]
   }
 ];
 
+// 5️⃣ EXPERIENCE — LOCKED ✅
 export const EXPERIENCE: Experience[] = [
   {
-    title: "AI/ML Backend Intern – Team Lead",
-    organization: "IBM",
+    title: "AI/ML Intern (Team Lead)",
+    organization: "IBM (Edunet Foundation)",
     period: "July – Aug 2024",
-    type: "Work",
+    type: "Internship",
     description: [
-      "Architected the backend integration for an AI-driven solution, leading a team of 4.",
-      "Designed API contracts and data flow diagrams to ensure seamless communication between services.",
-      "Optimized server response times by 30% through efficient data processing pipelines."
+      "Coordinated a team of 4 to integrate backend logic for an AI-driven solution.",
+      "Designed API endpoints and managed data flow between services.",
+      "Gained hands-on experience with team collaboration and project delivery."
     ]
   },
   {
-    title: "Data Analytics Engine",
-    organization: "Independent Project",
-    type: "Project",
-    description: [
-      "Built a data processing pipeline to ingest, clean, and visualize large datasets.",
-      "Implemented batch processing jobs to handle data transformation efficiently."
-    ]
-  },
-  {
-    title: "Prabal 2025 Hackathon",
+    title: "Prabal Hackathon Participant",
     organization: "Team Vanguards",
     type: "Hackathon",
     description: [
-      "Developed the backend logic for a rapid-prototype solution under tight deadlines.",
-      "Focused on API stability and deployment automation."
+      "Collaborated on backend logic for a mental health chatbot solution.",
+      "Focused on API stability and integration under deadline pressure."
     ]
   }
 ];
 
+// 6️⃣ EDUCATION — LOCKED ✅
 export const EDUCATION: Education[] = [
   {
     institution: "Dnyanshree Institute of Engineering and Technology (DBATU)",
@@ -133,9 +131,11 @@ export const EDUCATION: Education[] = [
   }
 ];
 
+// 7️⃣ CERTIFICATIONS — LOCKED ✅
 export const CERTIFICATIONS: Certification[] = [
-  { name: "AWS Academy Graduate – Cloud Architecting", issuer: "AWS" },
+  // ⚠️ NOTE: Only use "Architecting" if your certificate explicitly says so.
+  // If it is the standard student course, "Cloud Foundations" is safer.
+  { name: "AWS Academy Graduate – Cloud Foundations", issuer: "AWS" },
   { name: "Full Stack Java Developer", issuer: "Eduskills" },
-  { name: "Back-End Engineering Virtual Experience", issuer: "Lyft (Forage)" },
-  { name: "Cloud Engineering", issuer: "Google Cloud Skills Boost" }
+  { name: "Back-End Engineering Virtual Experience", issuer: "Lyft (Forage)" }
 ];
