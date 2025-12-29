@@ -32,7 +32,7 @@ const Projects = () => {
       techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
       links: {
         code: "https://github.com/PurveshShinde/Notes_Management_System",
-        live: null
+        live: "https://notes-management-system.rf.gd/index.php"
       }
     },
     {
