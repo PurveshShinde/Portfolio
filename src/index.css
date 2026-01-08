@@ -2,7 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles can go here */
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
 body {
-  @apply bg-slate-950 text-slate-100;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer base {
+  :root {
+    /* Default Theme (Modern/Dark) */
+    --bg-primary: #020617;
+    /* slate-950 */
+    --bg-secondary: #0f172a;
+    /* slate-900 */
+    --text-primary: #f8fafc;
+    /* slate-50 */
+    --text-secondary: #94a3b8;
+    /* slate-400 */
+    --accent: #3b82f6;
+    /* blue-500 */
+    --border: #1e293b;
+    /* slate-800 */
+  }
+
+  .wizard-theme {
+    /* Harry Potter Theme (Parchment/Ink or Deep Magic) */
+    --bg-primary: #1a1025;
+    /* Deep Purple Black */
+    --bg-secondary: #2d1b4e;
+    /* Lighter Deep Purple */
+    --text-primary: #f3e5ab;
+    /* Parchment/Old Paper */
+    --text-secondary: #a89f91;
+    /* Faded Ink */
+    --accent: #fbbf24;
+    /* Golden Snitch / Lumos */
+    --border: #4c3b69;
+    /* Magical Border */
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.7s ease, color 0.7s ease;
+  }
 }

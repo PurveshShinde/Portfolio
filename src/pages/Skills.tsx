@@ -11,20 +11,27 @@ import {
   BarChart,
   GitBranch,
   BookOpen,
-  Languages
+  Languages,
+  Scroll,
+  Sparkles,
+  Wand2,
+  Hexagon
 } from 'lucide-react';
+import { useMagic } from '../context/MagicContext';
 
 const Skills = () => {
-  // ✅ FINAL STRUCTURE: Java-First, Fresher-Aligned
+  const { isWizardMode } = useMagic();
+
+  // ✅ SKILLS DATA: Standard Text, Conditional Icons
   const SKILLS_DATA = [
     {
       category: "Primary Stack",
-      icon: Terminal,
+      icon: isWizardMode ? Scroll : Terminal,
       items: ["Java", "Object-Oriented Programming", "Data Structures", "Algorithms"]
     },
     {
       category: "Supporting Languages",
-      icon: Cpu,
+      icon: isWizardMode ? Hexagon : Cpu,
       items: ["JavaScript", "SQL (Basic)", "Python (Basic)"]
     },
     {
@@ -39,7 +46,7 @@ const Skills = () => {
     },
     {
       category: "Web Technologies",
-      icon: Globe,
+      icon: isWizardMode ? Sparkles : Globe,
       items: ["HTML", "CSS", "React (Basic)", "React Native"]
     },
     {
@@ -49,7 +56,7 @@ const Skills = () => {
     },
     {
       category: "Tools & Development",
-      icon: GitBranch,
+      icon: isWizardMode ? Wand2 : GitBranch,
       items: ["Git", "GitHub", "VS Code", "Postman"]
     },
     {
@@ -74,9 +81,13 @@ const Skills = () => {
           variants={fadeInUp}
           className="mx-auto max-w-2xl text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Technical Arsenal</h2>
-          <p className="text-lg md:text-xl leading-8 text-slate-400">
-            Core technical skills, tools, and learning areas aligned with Java fresher and intern roles.
+          <h2 className={`text-4xl md:text-5xl font-bold tracking-tight mb-6 ${isWizardMode ? 'text-amber-400 font-serif' : 'text-white'}`}>
+            {isWizardMode ? 'Magical Arsenal' : 'Technical Arsenal'}
+          </h2>
+          <p className={`text-lg md:text-xl leading-8 ${isWizardMode ? 'text-amber-200/80 font-serif italic' : 'text-slate-400'}`}>
+            {isWizardMode
+              ? "The spells, incantations, and artifacts I have mastered in my journey."
+              : "Core technical skills, tools, and learning areas aligned with Java fresher and intern roles."}
           </p>
         </motion.div>
 
@@ -91,20 +102,24 @@ const Skills = () => {
             <motion.div
               key={index}
               variants={fadeInUp}
-              className="h-full relative hover:z-50" // ✅ FIX: Ensures active card is always on top
+              className="h-full relative hover:z-50"
             >
               <TiltCard className="h-full">
-                {/* ✅ FIX: Removed 'backdrop-blur-md' and used solid opacity 'bg-slate-900/90'.
-                   Added 'transform-gpu' to stop the disappearing glitch.
-                */}
-                <div className="flex flex-col h-full bg-slate-900/90 rounded-3xl p-8 border border-slate-800 shadow-xl shadow-slate-900/50 overflow-hidden relative group transform-gpu">
+                <div
+                  className={`
+                    flex flex-col h-full rounded-3xl p-8 border shadow-xl overflow-hidden relative group transform-gpu transition-all duration-500
+                    ${isWizardMode
+                      ? 'bg-amber-950/20 border-amber-500/30'
+                      : 'bg-slate-900/90 border-slate-800 shadow-slate-900/50'}
+                  `}
+                >
 
                   {/* Background Gradient Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${isWizardMode ? 'from-amber-500/10 to-purple-500/10' : 'from-primary-500/10 to-purple-500/10'}`} />
 
                   <div className="relative z-10 flex flex-col h-full">
-                    <h3 className="text-xl font-bold leading-8 text-white mb-6 flex items-center gap-3">
-                      <skillGroup.icon className="w-6 h-6 text-primary-500" />
+                    <h3 className={`text-xl font-bold leading-8 mb-6 flex items-center gap-3 ${isWizardMode ? 'text-amber-100' : 'text-white'}`}>
+                      <skillGroup.icon className={`w-6 h-6 ${isWizardMode ? 'text-amber-400' : 'text-primary-500'}`} />
                       {skillGroup.category}
                     </h3>
 
@@ -112,7 +127,12 @@ const Skills = () => {
                       {skillGroup.items.map((skill) => (
                         <span
                           key={skill}
-                          className="cursor-default inline-flex items-center rounded-md bg-slate-800/80 px-3 py-1.5 text-sm font-medium text-slate-300 border border-slate-700/60 group-hover:border-primary-500/20 transition-colors"
+                          className={`
+                            cursor-default inline-flex items-center rounded-md px-3 py-1.5 text-sm font-medium border transition-colors
+                            ${isWizardMode
+                              ? 'bg-amber-900/30 text-amber-200 border-amber-500/20 group-hover:border-amber-400/40'
+                              : 'bg-slate-800/80 text-slate-300 border-slate-700/60 group-hover:border-primary-500/20'}
+                          `}
                         >
                           {skill}
                         </span>

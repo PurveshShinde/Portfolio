@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Briefcase, GraduationCap, Award } from 'lucide-react';
+import { Briefcase, GraduationCap, Award, Scroll } from 'lucide-react';
 import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from '../utils/animations';
+import { useMagic } from '../context/MagicContext';
 
 const Experience = () => {
+  const { isWizardMode } = useMagic();
   // 1. Ref for the timeline container to track scrolling
   const containerRef = useRef(null);
 
@@ -26,7 +28,7 @@ const Experience = () => {
       type: "Internship",
       period: "July – August 2024",
       title: "AI/ML Virtual Internship – Team Lead",
-      organization: "IBM",
+      organization: "IBM (Edunet Foundation)",
       description: [
         "Participated in an AI/ML-focused virtual internship program at IBM, working as a team lead on a project-based assignment.",
         "Contributed to backend-oriented workflows, API usage, and data processing logic, while coordinating tasks and collaborating with team members.",
@@ -55,7 +57,7 @@ const Experience = () => {
     }
   ];
 
-  // ✅ EDUCATION DATA: Updated University Name & Structure
+  // ✅ EDUCATION DATA
   const EDUCATION_DATA = [
     {
       degree: "B.Tech in Computer Science",
@@ -74,32 +76,14 @@ const Experience = () => {
     }
   ];
 
-  // ✅ CERTIFICATIONS: Reordered for Backend/Java Priority
+  // ✅ CERTIFICATIONS
   const FINAL_CERTIFICATIONS = [
-    {
-      name: "AWS Academy Graduate – Data Engineering",
-      issuer: "AWS Academy"
-    },
-    {
-      name: "Full Stack Java Developer Certification",
-      issuer: "Eduskills"
-    },
-    {
-      name: "Back-End Engineering Virtual Experience",
-      issuer: "Forage (Lyft)"
-    },
-    {
-      name: "AI/ML Virtual Internship",
-      issuer: "Google & Eduskills"
-    },
-    {
-      name: "Data Analysis with Python",
-      issuer: "IBM SkillsBuild"
-    },
-    {
-      name: "JavaScript Fundamentals (Course Completion)",
-      issuer: "Udemy"
-    }
+    { name: "AWS Academy Graduate – Data Engineering", issuer: "AWS Academy" },
+    { name: "Full Stack Java Developer Certification", issuer: "Eduskills" },
+    { name: "Back-End Engineering Virtual Experience", issuer: "Forage (Lyft)" },
+    { name: "AI/ML Virtual Internship", issuer: "Google & Eduskills" },
+    { name: "Data Analysis with Python", issuer: "IBM SkillsBuild" },
+    { name: "JavaScript Fundamentals", issuer: "Udemy" }
   ];
 
   return (
@@ -115,17 +99,21 @@ const Experience = () => {
             variants={fadeInUp}
             className="mx-auto max-w-2xl text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">Journey</h2>
-            <p className="text-lg text-slate-400">Professional experience, internships, and hackathons</p>
+            <h2 className={`text-4xl md:text-5xl font-bold tracking-tight mb-4 ${isWizardMode ? 'text-amber-400 font-serif' : 'text-white'}`}>
+              {isWizardMode ? 'The Path Traveled' : 'Journey'}
+            </h2>
+            <p className={`text-lg ${isWizardMode ? 'text-amber-200/80 font-serif italic' : 'text-slate-400'}`}>
+              {isWizardMode ? 'My apprenticeship, trials, and quests undertaken.' : 'Professional experience, internships, and hackathons'}
+            </p>
           </motion.div>
 
           <div ref={containerRef} className="mx-auto max-w-4xl">
             <div className="space-y-12 relative px-4 sm:px-0">
-              
+
               {/* INTERACTIVE SCROLL LINE */}
               <motion.div
-                style={{ scaleY }} 
-                className="absolute left-8 top-0 bottom-0 md:left-1/2 md:-ml-0.5 w-0.5 bg-gradient-to-b from-primary-500 via-primary-400 to-primary-500/0 origin-top"
+                style={{ scaleY }}
+                className={`absolute left-8 top-0 bottom-0 md:left-1/2 md:-ml-0.5 w-0.5 origin-top ${isWizardMode ? 'bg-gradient-to-b from-amber-500 via-amber-400 to-amber-500/0' : 'bg-gradient-to-b from-primary-500 via-primary-400 to-primary-500/0'}`}
               />
 
               {JOURNEY_DATA.map((item, index) => (
@@ -138,34 +126,38 @@ const Experience = () => {
                   className={`relative flex flex-col md:flex-row items-start md:items-center justify-between md:justify-normal ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} group`}
                 >
                   {/* Timeline Dot with Glow */}
-                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-900 border-2 border-primary-500 shadow-[0_0_10px_rgba(59,130,246,0.6)] z-20 mt-6 md:mt-0" />
+                  <div className={`absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-900 border-2 z-20 mt-6 md:mt-0 ${isWizardMode ? 'border-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.6)]' : 'border-primary-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]'}`} />
 
                   {/* Icon Card - Mobile Only (left aligned) / Desktop hidden */}
                   <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-slate-800 bg-slate-900 shadow-lg absolute left-1/2 -translate-x-1/2 -translate-y-12 z-10 opacity-0">
-                    <Briefcase className="w-5 h-5 text-primary-500" />
+                    <Briefcase className={`w-5 h-5 ${isWizardMode ? 'text-amber-500' : 'text-primary-500'}`} />
                   </div>
 
                   {/* Content Card */}
-                  <div className={`ml-16 md:ml-0 w-full md:w-[calc(50%-3rem)] bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-lg hover:shadow-xl hover:shadow-slate-900/50 hover:border-primary-500/30 transition-all duration-300 relative overflow-hidden`}>
+                  <div className={`ml-16 md:ml-0 w-full md:w-[calc(50%-3rem)] backdrop-blur-md p-6 rounded-2xl border shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden
+                    ${isWizardMode
+                      ? 'bg-amber-950/20 border-amber-500/30 hover:border-amber-400/50 hover:shadow-amber-900/20'
+                      : 'bg-slate-900/60 border-slate-800 hover:shadow-slate-900/50 hover:border-primary-500/30'}
+                  `}>
 
                     {/* Subtle gradient flash on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary-500/0 via-primary-500/5 to-primary-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                    <div className={`absolute inset-0 bg-gradient-to-r via-primary-500/5 to-primary-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ${isWizardMode ? 'from-amber-500/0' : 'from-primary-500/0'}`} />
 
                     <div className="relative z-10">
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <span className="inline-flex items-center rounded-md bg-primary-900/30 px-2 py-1 text-xs font-medium text-primary-300 ring-1 ring-inset ring-primary-700/10">
+                        <span className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset ${isWizardMode ? 'bg-amber-900/30 text-amber-200 ring-amber-500/20' : 'bg-primary-900/30 text-primary-300 ring-primary-700/10'}`}>
                           {item.type}
                         </span>
                         {item.period && <time className="font-mono text-xs text-slate-400">{item.period}</time>}
                       </div>
 
-                      <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
-                      <div className="text-base font-medium text-primary-400 mb-4">{item.organization}</div>
+                      <h3 className={`text-xl font-bold mb-1 ${isWizardMode ? 'text-amber-100' : 'text-white'}`}>{item.title}</h3>
+                      <div className={`text-base font-medium mb-4 ${isWizardMode ? 'text-amber-400' : 'text-primary-400'}`}>{item.organization}</div>
 
                       <ul className="text-slate-300 text-sm space-y-2 list-none">
                         {item.description.map((desc, i) => (
-                          <li key={i} className="flex items-start">
-                            <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-600" />
+                          <li key={i} className={`flex items-start ${isWizardMode ? 'text-amber-200/80' : 'text-slate-300'}`}>
+                            <span className={`mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full ${isWizardMode ? 'bg-amber-500' : 'bg-slate-600'}`} />
                             {desc}
                           </li>
                         ))}
@@ -190,10 +182,10 @@ const Experience = () => {
               variants={fadeInUp}
               className="flex items-center gap-4 mb-8"
             >
-              <div className="p-3 rounded-xl bg-slate-800">
-                <GraduationCap className="h-6 w-6 text-primary-400" />
+              <div className={`p-3 rounded-xl ${isWizardMode ? 'bg-amber-900/20' : 'bg-slate-800'}`}>
+                <GraduationCap className={`h-6 w-6 ${isWizardMode ? 'text-amber-400' : 'text-primary-400'}`} />
               </div>
-              <h2 className="text-2xl font-bold text-white">Education</h2>
+              <h2 className={`text-2xl font-bold ${isWizardMode ? 'text-amber-100' : 'text-white'}`}>Education</h2>
             </motion.div>
 
             <motion.div
@@ -208,11 +200,11 @@ const Experience = () => {
                   key={index}
                   variants={fadeInUp}
                   whileHover={{ x: 10 }}
-                  className="bg-slate-900/60 backdrop-blur-md p-5 rounded-2xl border border-slate-800 shadow-sm transition-all"
+                  className={`backdrop-blur-md p-5 rounded-2xl border shadow-sm transition-all ${isWizardMode ? 'bg-amber-950/20 border-amber-500/20 hover:border-amber-500/40' : 'bg-slate-900/60 border-slate-800'}`}
                 >
                   <div className="flex justify-between items-start mb-1">
-                    <h3 className="font-bold text-white text-base">{edu.degree}</h3>
-                    <span className="text-xs font-mono text-primary-400 whitespace-nowrap ml-2 mt-1">{edu.year}</span>
+                    <h3 className={`font-bold text-base ${isWizardMode ? 'text-amber-100' : 'text-white'}`}>{edu.degree}</h3>
+                    <span className={`text-xs font-mono whitespace-nowrap ml-2 mt-1 ${isWizardMode ? 'text-amber-400' : 'text-primary-400'}`}>{edu.year}</span>
                   </div>
                   <p className="text-slate-400 text-sm">{edu.institution}</p>
                 </motion.div>
@@ -229,10 +221,10 @@ const Experience = () => {
               variants={fadeInUp}
               className="flex items-center gap-4 mb-8"
             >
-              <div className="p-3 rounded-xl bg-slate-800">
-                <Award className="h-6 w-6 text-primary-400" />
+              <div className={`p-3 rounded-xl ${isWizardMode ? 'bg-amber-900/20' : 'bg-slate-800'}`}>
+                {isWizardMode ? <Scroll className="h-6 w-6 text-amber-400" /> : <Award className="h-6 w-6 text-primary-400" />}
               </div>
-              <h2 className="text-2xl font-bold text-white">Certifications & Training</h2>
+              <h2 className={`text-2xl font-bold ${isWizardMode ? 'text-amber-100' : 'text-white'}`}>Certifications & Training</h2>
             </motion.div>
 
             <motion.div
@@ -247,11 +239,11 @@ const Experience = () => {
                   key={index}
                   variants={fadeInUp}
                   whileHover={{ scale: 1.02 }}
-                  className="flex items-center gap-4 bg-slate-900/60 backdrop-blur-md p-4 rounded-xl border border-slate-800 shadow-sm"
+                  className={`flex items-center gap-4 backdrop-blur-md p-4 rounded-xl border shadow-sm ${isWizardMode ? 'bg-amber-950/20 border-amber-500/20' : 'bg-slate-900/60 border-slate-800'}`}
                 >
-                  <div className="h-1.5 w-1.5 rounded-full bg-primary-500 shrink-0" />
+                  <div className={`h-1.5 w-1.5 rounded-full shrink-0 ${isWizardMode ? 'bg-amber-500' : 'bg-primary-500'}`} />
                   <div>
-                    <h4 className="text-sm font-semibold text-white leading-tight mb-1">{cert.name}</h4>
+                    <h4 className={`text-sm font-semibold leading-tight mb-1 ${isWizardMode ? 'text-amber-100' : 'text-white'}`}>{cert.name}</h4>
                     <p className="text-xs text-slate-400">{cert.issuer}</p>
                   </div>
                 </motion.div>

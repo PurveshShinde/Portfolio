@@ -1,183 +1,133 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Download, Github, Linkedin, ChevronDown } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { PROFILE, CONTACT } from '../constants';
-import Terminal from '../components/Terminal';
+import { Download, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { PROFILE } from '../constants';
 import { fadeInUp, staggerContainer } from '../utils/animations';
-
-// ✅ IMPORT RESUME PDF
-// Ensure the file is at: src/components/assets/Purvesh Shinde_Resume_Java.pdf
 import resumePdf from "../components/assets/Purvesh Shinde_Resume_Java.pdf";
-
-// Custom Hook for Typewriter Effect
-const useTypewriter = (words: string[], typingSpeed = 150, deletingSpeed = 100, pauseDuration = 2000) => {
-  const [text, setText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [typing, setTyping] = useState(true);
-
-  useEffect(() => {
-    const i = loopNum % words.length;
-    const fullText = words[i];
-
-    const handleTyping = () => {
-      if (isDeleting) {
-        setText(fullText.substring(0, text.length - 1));
-        setTyping(true);
-      } else {
-        setText(fullText.substring(0, text.length + 1));
-        setTyping(true);
-      }
-
-      if (!isDeleting && text === fullText) {
-        setTimeout(() => setIsDeleting(true), pauseDuration);
-        setTyping(false);
-      } else if (isDeleting && text === '') {
-        setIsDeleting(false);
-        setLoopNum(loopNum + 1);
-        setTyping(false);
-      }
-    };
-
-    const timer = setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
-
-    return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum, words, typingSpeed, deletingSpeed, pauseDuration]);
-
-  return text;
-};
+import { useMagic } from '../context/MagicContext';
 
 const Home = () => {
-  // ✅ CHANGE 1: Updated roles to be fresher-safe
-  // Note: I used "Developer" (not "Java Developer") in the list because the word "Java" 
-  // is already hardcoded in the <h1> tag below. This ensures it reads "Java Developer" 
-  // instead of "Java Java Developer".
-  const typewrittenText = useTypewriter(["Software Developer", "Developer"], 100, 50, 2000);
-
-  const scrollToProjects = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const element = document.getElementById('projects');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const { isWizardMode } = useMagic();
 
   return (
-    <div className="relative w-full">
-      {/* Immersive Hero Section */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden">
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center pb-32 p-6 lg:p-0">
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full z-10 pt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      {/* Background Ambience Removed for 3D Background */}
 
-            {/* Left Column: Text Content */}
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="text-center max-w-3xl mx-auto z-10 relative"
+      >
+        {/* Global Acknowledgment Text */}
+        <AnimatePresence>
+          {isWizardMode && (
             <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-              className="max-w-2xl"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="absolute -top-16 left-0 right-0 text-center pointer-events-none"
             >
-              <motion.div variants={fadeInUp} className="mb-8">
-                <span className="inline-flex items-center rounded-full bg-primary-400/10 px-4 py-1.5 text-sm font-semibold text-primary-400 ring-1 ring-inset ring-primary-400/20 backdrop-blur-md">
-                  <span className="w-2 h-2 rounded-full bg-primary-400 mr-2 animate-pulse"></span>
-                  Open to Java Developer Intern / Fresher Roles
-                </span>
-              </motion.div>
-
-              {/* LAYOUT FIX: INVISIBLE SKELETON STRATEGY 
-                  1. The <h1> is 'relative'.
-                  2. We render "Java Software Developer" (the longest text) as an INVISIBLE block (opacity-0).
-                     This forces the browser to reserve the full height (2 lines on mobile) immediately.
-                     This pushes the "About" section down permanently.
-                  3. The visible typing text is positioned 'absolute' on top of it.
-              */}
-              <motion.h1
-                variants={fadeInUp}
-                className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 relative"
-              >
-                {/* ✅ CHANGE 2: Updated Skeleton to match new longest string */}
-                <span className="opacity-0 select-none pointer-events-none block">
-                  Java Software Developer
-                </span>
-
-                {/* VISIBLE ANIMATION - Overlay */}
-                <span className="absolute top-0 left-0 w-full h-full">
-                  Java{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-indigo-400">
-                    {typewrittenText}
-                  </span>
-                  <span className="text-primary-400 animate-pulse">|</span>
-                </span>
-              </motion.h1>
-
-              <motion.p variants={fadeInUp} className="text-xl leading-8 text-slate-300 mb-8 max-w-lg">
-                B.Tech Computer Science student and Java Developer (Fresher / Intern level) with hands-on experience in object-oriented programming, REST APIs, databases, and backend-oriented application development.
-              </motion.p>
-
-              <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-6">
-                <button
-                  onClick={scrollToProjects}
-                  className="group relative inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 text-base font-semibold text-slate-900 shadow-lg transition-all hover:bg-slate-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  View Architecture
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </button>
-
-                {/* RESUME LINK */}
-                <a
-                  href={resumePdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-base font-semibold leading-6 text-white hover:text-primary-400 transition-colors flex items-center gap-2"
-                >
-                  <Download className="h-4 w-4" /> Java Developer Resume
-                </a>
-              </motion.div>
-
-              <motion.div variants={fadeInUp} className="mt-12 flex gap-6 text-slate-400">
-                <motion.a whileHover={{ y: -3, color: '#fff' }} href={CONTACT.github} target="_blank" rel="noreferrer" className="hover:text-white transition-all">
-                  <Github className="w-7 h-7" />
-                </motion.a>
-                <motion.a whileHover={{ y: -3, color: '#0077b5' }} href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="hover:text-white transition-all">
-                  <Linkedin className="w-7 h-7" />
-                </motion.a>
-              </motion.div>
+              <span className="text-amber-500/60 font-serif italic tracking-widest text-sm flex items-center justify-center gap-2">
+                <Sparkles className="w-3 h-3" /> The Veil has been lifted
+              </span>
             </motion.div>
+          )}
+        </AnimatePresence>
 
-            {/* Right Column: Terminal & 3D Sync */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="relative lg:h-[600px] flex items-center justify-center"
-            >
-              {/* Terminal Container */}
-              <div className="w-full max-w-lg relative z-10 transform transition-transform hover:scale-[1.01] duration-500">
-                {/* Glow Effect behind terminal */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-2xl blur opacity-40 animate-pulse"></div>
-                <Terminal />
-              </div>
-            </motion.div>
+        {/* Name & Availability */}
+        <div className="relative inline-block mb-4">
+          <motion.h1
+            variants={fadeInUp}
+            className="text-5xl md:text-7xl font-bold tracking-tight text-white relative z-10"
+          >
+            {PROFILE.name}
+          </motion.h1>
 
-          </div>
+          {/* Availability Badge */}
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.5, type: 'spring' }}
+            className={`absolute -top-6 -right-2 md:-right-12 flex items-center justify-center`}
+          >
+            <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ring-inset ${isWizardMode ? 'bg-amber-500/10 text-amber-400 ring-amber-500/40' : 'bg-green-500/10 text-green-400 ring-green-500/30'}`}>
+              Open to Work
+            </span>
+          </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-slate-500"
-        >
-          <span className="text-xs uppercase tracking-widest mb-2">Scroll</span>
+        {/* Role & Tagline */}
+        <motion.div variants={fadeInUp} className="space-y-4 mb-8">
+          <h2 className={`text-xl md:text-2xl font-medium ${isWizardMode ? 'text-amber-400' : 'text-primary-400'}`}>
+            {PROFILE.title}
+          </h2>
+          <p className={`text-base md:text-lg max-w-xl mx-auto leading-relaxed transition-colors duration-700
+                ${isWizardMode ? 'text-amber-200/80 font-serif italic' : 'text-slate-400'}`}>
+            {isWizardMode
+              ? "Keeper of Knowledge & Weaver of Code. I craft digital artifacts that stand the test of time."
+              : PROFILE.tagline}
+          </p>
+          {/* Added Extra Info */}
+          <p className="text-sm text-slate-500 max-w-lg mx-auto">
+            Specializing in building exceptional digital experiences. Currently focused on accessible, human-centered products.
+          </p>
+        </motion.div>
+
+        {/* Actions Row */}
+        <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+          {/* Projects Button */}
+          <a
+            href="#projects"
+            className={`
+                px-6 py-2.5 rounded-full font-medium transition-all duration-300 border
+                ${isWizardMode
+                ? 'bg-amber-500/10 border-amber-500/40 text-amber-400 hover:bg-amber-500/20 hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]'
+                : 'bg-slate-800/50 border-slate-700 text-slate-200 hover:bg-slate-800 hover:border-slate-500 hover:text-white'}
+            `}
+          >
+            Explore Projects
+          </a>
+
+          {/* Resume Button */}
+          <a
+            href={resumePdf}
+            target="_blank"
+            rel="noreferrer"
+            className={`
+                flex items-center gap-2 px-6 py-2.5 rounded-full font-medium transition-all duration-300 border border-transparent
+                ${isWizardMode
+                ? 'text-amber-400/80 hover:text-amber-200 hover:bg-amber-900/20'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'}
+            `}
+          >
+            <Download className="w-4 h-4" />
+            {isWizardMode ? "Grimoire (Resume)" : "Resume"}
+          </a>
+        </motion.div>
+
+      </motion.div>
+
+      {/* Mouse Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-0"
+      >
+        <span className={`text-[10px] tracking-[0.2em] uppercase ${isWizardMode ? 'text-amber-500/50' : 'text-slate-600'}`}>
+          Scroll Down
+        </span>
+        <div className={`w-[26px] h-[40px] border-2 rounded-full flex justify-center p-2 opacity-60
+            ${isWizardMode ? 'border-amber-500/30' : 'border-slate-500/30'}`}>
           <motion.div
             animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-6 h-6" />
-          </motion.div>
-        </motion.div>
-      </section>
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            className={`w-1 h-1 rounded-full ${isWizardMode ? 'bg-amber-500' : 'bg-slate-400'}`}
+          />
+        </div>
+      </motion.div>
     </div>
   );
 };

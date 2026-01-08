@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X, Terminal, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useMagic } from '../context/MagicContext';
 
 const Navbar = () => {
+  const { isWizardMode } = useMagic();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('home');
 
@@ -61,10 +63,11 @@ const Navbar = () => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setActiveSection('home');
+    setIsOpen(false);
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+    <nav className={`sticky top-0 z-50 w-full backdrop-blur-md border-b transition-all duration-1000 ${isWizardMode ? 'bg-slate-950/80 border-amber-500/30' : 'bg-slate-950/80 border-slate-800'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -73,9 +76,9 @@ const Navbar = () => {
               whileHover={{ rotate: 20 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Terminal className="h-8 w-8 text-primary-400" />
+              {isWizardMode ? <Sparkles className="h-8 w-8 text-amber-500" /> : <Terminal className="h-8 w-8 text-primary-400" />}
             </motion.div>
-            <span className="font-bold text-xl tracking-tight text-white">Purvesh.dev</span>
+            <span className={`font-bold text-xl tracking-tight ${isWizardMode ? 'text-amber-100 font-serif' : 'text-white'}`}>Purvesh.dev</span>
           </a>
 
           {/* Desktop Nav */}
@@ -89,15 +92,15 @@ const Navbar = () => {
                     href={link.path}
                     onClick={(e) => scrollToSection(e, link.path)}
                     className={`relative px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${isActive
-                      ? 'text-primary-400'
-                      : 'text-slate-300 hover:text-primary-400'
+                      ? (isWizardMode ? 'text-amber-400' : 'text-primary-400')
+                      : (isWizardMode ? 'text-amber-200/70 hover:text-amber-300' : 'text-slate-300 hover:text-primary-400')
                       }`}
                   >
                     {link.name}
                     {isActive && (
                       <motion.div
                         layoutId="navbar-underline"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-400 rounded-full"
+                        className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-full ${isWizardMode ? 'bg-amber-400' : 'bg-primary-400'}`}
                         initial={false}
                         transition={{ type: "spring", stiffness: 500, damping: 30 }}
                       />
@@ -113,7 +116,7 @@ const Navbar = () => {
             <button
               onClick={toggleMenu}
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none"
+              className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${isWizardMode ? 'text-amber-200 hover:text-amber-100 hover:bg-amber-900/50' : 'text-slate-300 hover:text-white hover:bg-slate-800'}`}
             >
               <span className="sr-only">Open main menu</span>
               {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
@@ -129,7 +132,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-slate-900 border-b border-slate-800 overflow-hidden"
+            className={`md:hidden border-b overflow-hidden ${isWizardMode ? 'bg-amber-950 border-amber-900 text-amber-100' : 'bg-slate-900 border-slate-800 text-white'}`}
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navLinks.map((link) => {
@@ -140,8 +143,8 @@ const Navbar = () => {
                     href={link.path}
                     onClick={(e) => scrollToSection(e, link.path)}
                     className={`block px-3 py-2 rounded-md text-base font-medium ${isActive
-                      ? 'bg-primary-900/20 text-primary-400'
-                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                      ? (isWizardMode ? 'bg-amber-900/40 text-amber-400' : 'bg-primary-900/20 text-primary-400')
+                      : (isWizardMode ? 'text-amber-200/70 hover:bg-amber-900/30' : 'text-slate-300 hover:bg-slate-800 hover:text-white')
                       }`}
                   >
                     {link.name}

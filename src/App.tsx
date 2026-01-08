@@ -6,31 +6,30 @@ import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
 
-
 const App = () => {
     return (
         <Layout>
-            <section id="home">
+            <section id="home" className="min-h-screen flex flex-col justify-center">
                 <Home />
             </section>
 
-            <section id="about" className="scroll-mt-16">
+            <section id="about" className="min-h-screen flex flex-col justify-center relative z-10">
                 <About />
             </section>
 
-            <section id="skills" className="scroll-mt-16">
+            <section id="skills" className="relative z-10">
                 <Skills />
             </section>
 
-            <section id="projects" className="scroll-mt-16">
+            <section id="projects" className="relative z-10">
                 <Projects />
             </section>
 
-            <section id="experience" className="scroll-mt-16">
+            <section id="experience" className="relative z-10">
                 <Experience />
             </section>
 
-            <section id="contact" className="scroll-mt-16">
+            <section id="contact" className="relative z-10 pb-20">
                 <Contact />
             </section>
         </Layout>
