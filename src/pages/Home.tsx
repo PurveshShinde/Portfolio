@@ -9,7 +9,7 @@ const Home = () => {
   const { isWizardMode } = useMagic();
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center pb-32 p-6 lg:p-0">
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center pb-48 p-6 lg:p-0">
 
       {/* Background Ambience Removed for 3D Background */}
 
@@ -17,7 +17,8 @@ const Home = () => {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="text-center max-w-3xl mx-auto z-10 relative"
+        // UPDATED HERE: Changed '-mt-16' to '-mt-32' to pull it up significantly more
+        className="text-center max-w-3xl mx-auto z-10 relative -mt-32"
       >
         {/* Global Acknowledgment Text */}
         <AnimatePresence>
@@ -62,7 +63,7 @@ const Home = () => {
           <h2 className={`text-xl md:text-2xl font-medium ${isWizardMode ? 'text-amber-400' : 'text-primary-400'}`}>
             {PROFILE.title}
           </h2>
-          <p className={`text-base md:text-lg max-w-xl mx-auto leading-relaxed transition-colors duration-700
+          <p className={`text-base md:text-lg max-w-xl mx-auto leading-relaxed transition-colors duration-700 
                 ${isWizardMode ? 'text-amber-200/80 font-serif italic' : 'text-slate-400'}`}>
             {isWizardMode
               ? "Keeper of Knowledge & Weaver of Code. I craft digital artifacts that stand the test of time."
@@ -119,7 +120,7 @@ const Home = () => {
         <span className={`text-[10px] tracking-[0.2em] uppercase ${isWizardMode ? 'text-amber-500/50' : 'text-slate-600'}`}>
           Scroll Down
         </span>
-        <div className={`w-[26px] h-[40px] border-2 rounded-full flex justify-center p-2 opacity-60
+        <div className={`w-[26px] h-[40px] border-2 rounded-full flex justify-center p-2 opacity-60 
             ${isWizardMode ? 'border-amber-500/30' : 'border-slate-500/30'}`}>
           <motion.div
             animate={{ y: [0, 8, 0] }}
