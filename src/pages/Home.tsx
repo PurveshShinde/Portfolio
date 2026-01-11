@@ -9,7 +9,7 @@ const Home = () => {
   const { isWizardMode } = useMagic();
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center pb-48 p-6 lg:p-0">
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center px-6 py-12 md:pb-48 md:p-0">
 
       {/* Background Ambience Removed for 3D Background */}
 
@@ -18,7 +18,7 @@ const Home = () => {
         initial="hidden"
         animate="visible"
         // UPDATED HERE: Changed '-mt-16' to '-mt-32' to pull it up significantly more
-        className="text-center max-w-3xl mx-auto z-10 relative -mt-32"
+        className="text-center max-w-3xl mx-auto z-10 relative md:-mt-32"
       >
         {/* Global Acknowledgment Text */}
         <AnimatePresence>

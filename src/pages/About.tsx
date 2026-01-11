@@ -7,19 +7,36 @@ import { useMagic } from '../context/MagicContext';
 const About = () => {
   const { isWizardMode } = useMagic();
 
-  // ✅ STANDARD TEXT
+  // ✅ STANDARD TEXT (Concise, recruiter-friendly)
   const STANDARD_ABOUT = [
-    "I am a Computer Science engineering student and Java Developer (Fresher / Intern level) with a strong foundation in core Java, object-oriented programming, DSA, and backend development fundamentals.",
-    "I have worked on projects involving REST APIs and database integration, and I am currently focused on learning Spring Boot and strengthening my backend skills through real-world projects."
+    "Java Developer (Fresher) with strong foundations in Core Java, OOP, Data Structures, and backend fundamentals.",
+    "Currently focused on Spring Boot and building real-world backend systems through hands-on projects."
   ];
 
   // 🔮 WIZARD TEXT
   const WIZARD_ABOUT = [
-    "I am an Apprentice of the Arcane Arts (Computer Science) and a Scribe of Java Runes, forging my path with a strong foundation in Core Incantations, Object-Oriented Alchemy, and Algorithmic Spells.",
-    "I have crafted artifacts using REST Leylines and Crystal (Database) Integrations. My current quest focuses on mastering the Spring Boot Grimoire to strengthen my sorcery in real-world realms."
+    "Apprentice of the Arcane Arts with mastery in Java Runes, Object-Oriented Alchemy, and Algorithmic Spells.",
+    "Currently studying the Spring Boot Grimoire to strengthen my sorcery in real-world realms."
   ];
 
   const ABOUT_TEXT = isWizardMode ? WIZARD_ABOUT : STANDARD_ABOUT;
+
+  // 📊 METRICS ROW
+  const STANDARD_METRICS = [
+    { value: "3+", label: "Years Coding" },
+    { value: "5+", label: "Key Projects" },
+    { value: "3+", label: "Certifications" },
+    { value: "Spring Boot", label: "Current Focus" }
+  ];
+
+  const WIZARD_METRICS = [
+    { value: "3+", label: "Years of Study" },
+    { value: "5+", label: "Artifacts Forged" },
+    { value: "3", label: "Scrolls Earned" },
+    { value: "Spring Grimoire", label: "Current Quest" }
+  ];
+
+  const METRICS = isWizardMode ? WIZARD_METRICS : STANDARD_METRICS;
 
   // Safe Tags (Standard)
   const STANDARD_CARDS = [
@@ -75,10 +92,39 @@ const About = () => {
               <motion.p
                 variants={fadeInUp}
                 key={index}
-                className={`mb-4 text-lg leading-8 last:mb-0 ${isWizardMode ? 'text-amber-200/90 font-serif italic' : 'text-slate-300'}`}
+                className={`mb-4 text-lg leading-relaxed last:mb-0 ${isWizardMode ? 'text-amber-200/90 font-serif italic' : 'text-slate-300'}`}
               >
                 {paragraph}
               </motion.p>
+            ))}
+          </motion.div>
+
+          {/* Metrics Row */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+            className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4"
+          >
+            {METRICS.map((metric, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className={`
+                  text-center p-4 rounded-xl border backdrop-blur-sm
+                  ${isWizardMode
+                    ? 'bg-amber-950/20 border-amber-500/20'
+                    : 'bg-slate-900/40 border-slate-700/50'}
+                `}
+              >
+                <div className={`text-2xl font-bold ${isWizardMode ? 'text-amber-400' : 'text-primary-400'}`}>
+                  {metric.value}
+                </div>
+                <div className={`text-xs mt-1 ${isWizardMode ? 'text-amber-200/50' : 'text-slate-500'}`}>
+                  {metric.label}
+                </div>
+              </motion.div>
             ))}
           </motion.div>
 

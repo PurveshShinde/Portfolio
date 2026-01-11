@@ -113,7 +113,7 @@ const Experience = () => {
               {/* INTERACTIVE SCROLL LINE */}
               <motion.div
                 style={{ scaleY }}
-                className={`absolute left-8 top-0 bottom-0 md:left-1/2 md:-ml-0.5 w-0.5 origin-top ${isWizardMode ? 'bg-gradient-to-b from-amber-500 via-amber-400 to-amber-500/0' : 'bg-gradient-to-b from-primary-500 via-primary-400 to-primary-500/0'}`}
+                className={`hidden md:block absolute left-8 top-0 bottom-0 md:left-1/2 md:-ml-0.5 w-0.5 origin-top ${isWizardMode ? 'bg-gradient-to-b from-amber-500 via-amber-400 to-amber-500/0' : 'bg-gradient-to-b from-primary-500 via-primary-400 to-primary-500/0'}`}
               />
 
               {JOURNEY_DATA.map((item, index) => (
@@ -126,7 +126,7 @@ const Experience = () => {
                   className={`relative flex flex-col md:flex-row items-start md:items-center justify-between md:justify-normal ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} group`}
                 >
                   {/* Timeline Dot with Glow */}
-                  <div className={`absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-900 border-2 z-20 mt-6 md:mt-0 ${isWizardMode ? 'border-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.6)]' : 'border-primary-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]'}`} />
+                  <div className={`hidden md:block absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-900 border-2 z-20 mt-6 md:mt-0 ${isWizardMode ? 'border-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.6)]' : 'border-primary-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]'}`} />
 
                   {/* Icon Card - Mobile Only (left aligned) / Desktop hidden */}
                   <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-slate-800 bg-slate-900 shadow-lg absolute left-1/2 -translate-x-1/2 -translate-y-12 z-10 opacity-0">
@@ -134,14 +134,13 @@ const Experience = () => {
                   </div>
 
                   {/* Content Card */}
-                  <div className={`ml-16 md:ml-0 w-full md:w-[calc(50%-3rem)] backdrop-blur-md p-6 rounded-2xl border shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden
+                  <div className={`w-full md:w-[calc(50%-3rem)] backdrop-blur-md p-6 rounded-2xl border shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden
                     ${isWizardMode
                       ? 'bg-amber-950/20 border-amber-500/30 hover:border-amber-400/50 hover:shadow-amber-900/20'
                       : 'bg-slate-900/60 border-slate-800 hover:shadow-slate-900/50 hover:border-primary-500/30'}
                   `}>
 
-                    {/* Subtle gradient flash on hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-r via-primary-500/5 to-primary-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ${isWizardMode ? 'from-amber-500/0' : 'from-primary-500/0'}`} />
+
 
                     <div className="relative z-10">
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">

@@ -29,7 +29,7 @@ const Terminal = () => {
   const [history, setHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number>(-1);
   const [isBooting, setIsBooting] = useState<boolean>(true);
-  const [isMinimized, setIsMinimized] = useState<boolean>(false); // ✅ Added Minimize State
+  const [isMinimized, setIsMinimized] = useState<boolean>(() => window.innerWidth < 768); // ✅ Auto-minimize on mobile
 
 
   // ✅ USE GLOBAL MAGIC CONTEXT
@@ -97,7 +97,6 @@ const Terminal = () => {
   };
 
   useEffect(() => {
-    console.log("%c⚡ Mischief Managed? Try 'lumos' to light the way.", "color: #fcd34d; font-size: 14px; font-weight: bold; background: #1e293b; padding: 4px; border-radius: 4px;");
     runBootSequence();
     return () => timeoutsRef.current.forEach(clearTimeout);
   }, []);
@@ -184,8 +183,7 @@ const Terminal = () => {
           <span>contact</span>
           <span>clear</span>
           <span>whoami</span>
-          {/* Hidden spells hint */}
-          <span className="opacity-0">lumos</span>
+          <span>hint</span>
         </div>
       </div>
     ),
@@ -231,6 +229,10 @@ const Terminal = () => {
       </div>
     ),
     whoami: () => <span className="text-emerald-400 font-bold">guest@portfolio-backend</span>,
+    hint: () => {
+      console.log("%c⚡ Mischief Managed? Try 'lumos' to light the way.", "color: #fcd34d; font-size: 14px; font-weight: bold; background: #1e293b; padding: 4px; border-radius: 4px;");
+      return <span className="text-slate-500 italic">Check the developer console...</span>;
+    },
     nox: () => {
       castNox(); // ✅ Trigger Global Nox
       return <span className="text-slate-500">🌑 *Nox!* The light extinguishes.</span>;
@@ -394,7 +396,7 @@ const Terminal = () => {
   };
 
   return (
-    <>
+    <div className="hidden md:block">
       <AnimatePresence>
         {isMinimized && (
           <motion.button
@@ -516,7 +518,7 @@ const Terminal = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 
