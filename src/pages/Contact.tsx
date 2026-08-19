@@ -18,10 +18,9 @@ const Contact = () => {
     setLoading(true);
     setStatus('idle');
 
-    // ⚠️ REPLACE THESE WITH YOUR ACTUAL KEYS FROM EMAILJS DASHBOARD
-    const SERVICE_ID = 'service_b2cpt8q';
-    const TEMPLATE_ID = 'template_8otheig';
-    const PUBLIC_KEY = 'MOYK4CoYJB8TzCDTS';
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     if (formRef.current) {
       emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
@@ -122,7 +121,7 @@ const Contact = () => {
           <motion.div variants={fadeInUp}>
             <TiltCard>
               <div className={`
-                p-8 rounded-3xl border shadow-xl overflow-hidden relative group h-full backdrop-blur-md transition-all
+                p-8 rounded-3xl border shadow-xl overflow-hidden relative group h-full transition-all
                 ${isWizardMode
                   ? 'bg-amber-950/20 border-amber-500/30 shadow-amber-900/20'
                   : 'bg-slate-900/60 border-slate-800 shadow-slate-900/50'}
@@ -143,7 +142,7 @@ const Contact = () => {
                         name="user_name" // ✅ MATCHES {{user_name}} in Template
                         id="user_name"
                         required
-                        className={`mt-1 block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset sm:text-sm sm:leading-6 backdrop-blur-sm transition-colors focus:ring-2 focus:ring-inset 
+                        className={`mt-1 block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset sm:text-sm sm:leading-6 transition-colors focus:ring-2 focus:ring-inset 
                           ${isWizardMode
                             ? 'bg-amber-900/20 text-amber-100 ring-amber-500/40 placeholder:text-amber-500/30 focus:ring-amber-500 focus:bg-amber-900/40'
                             : 'bg-slate-800/50 text-white ring-slate-700 placeholder:text-slate-500 focus:ring-primary-600 focus:bg-slate-800'}
@@ -160,7 +159,7 @@ const Contact = () => {
                         name="user_email" // ✅ MATCHES {{user_email}} in Template
                         id="user_email"
                         required
-                        className={`mt-1 block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset sm:text-sm sm:leading-6 backdrop-blur-sm transition-colors focus:ring-2 focus:ring-inset 
+                        className={`mt-1 block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset sm:text-sm sm:leading-6 transition-colors focus:ring-2 focus:ring-inset 
                           ${isWizardMode
                             ? 'bg-amber-900/20 text-amber-100 ring-amber-500/40 placeholder:text-amber-500/30 focus:ring-amber-500 focus:bg-amber-900/40'
                             : 'bg-slate-800/50 text-white ring-slate-700 placeholder:text-slate-500 focus:ring-primary-600 focus:bg-slate-800'}
@@ -177,7 +176,7 @@ const Contact = () => {
                         id="message"
                         rows={4}
                         required
-                        className={`mt-1 block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset sm:text-sm sm:leading-6 backdrop-blur-sm transition-colors focus:ring-2 focus:ring-inset 
+                        className={`mt-1 block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset sm:text-sm sm:leading-6 transition-colors focus:ring-2 focus:ring-inset 
                           ${isWizardMode
                             ? 'bg-amber-900/20 text-amber-100 ring-amber-500/40 placeholder:text-amber-500/30 focus:ring-amber-500 focus:bg-amber-900/40'
                             : 'bg-slate-800/50 text-white ring-slate-700 placeholder:text-slate-500 focus:ring-primary-600 focus:bg-slate-800'}

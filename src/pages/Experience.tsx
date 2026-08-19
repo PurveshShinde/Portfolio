@@ -145,7 +145,7 @@ const Experience = () => {
                   </div>
 
                   {/* Content Card */}
-                  <div className={`w-full md:w-[calc(50%-3rem)] backdrop-blur-md p-6 rounded-2xl border shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden
+                  <div className={`w-full md:w-[calc(50%-3rem)] p-6 rounded-2xl border shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden
                     ${isWizardMode
                       ? 'bg-amber-950/20 border-amber-500/30 hover:border-amber-400/50 hover:shadow-amber-900/20'
                       : 'bg-slate-900/60 border-slate-800 hover:shadow-slate-900/50 hover:border-primary-500/30'}
@@ -210,7 +210,7 @@ const Experience = () => {
                   key={index}
                   variants={fadeInUp}
                   whileHover={{ x: 10 }}
-                  className={`backdrop-blur-md p-5 rounded-2xl border shadow-sm transition-all ${isWizardMode ? 'bg-amber-950/20 border-amber-500/20 hover:border-amber-500/40' : 'bg-slate-900/60 border-slate-800'}`}
+                  className={`p-5 rounded-2xl border shadow-sm transition-all ${isWizardMode ? 'bg-amber-950/20 border-amber-500/20 hover:border-amber-500/40' : 'bg-slate-900/60 border-slate-800'}`}
                 >
                   <div className="flex justify-between items-start mb-1">
                     <h3 className={`font-bold text-base ${isWizardMode ? 'text-amber-100' : 'text-white'}`}>{edu.degree}</h3>
@@ -249,7 +249,7 @@ const Experience = () => {
                   key={index}
                   variants={fadeInUp}
                   whileHover={{ scale: 1.02 }}
-                  className={`flex items-center gap-4 backdrop-blur-md p-4 rounded-xl border shadow-sm ${isWizardMode ? 'bg-amber-950/20 border-amber-500/20' : 'bg-slate-900/60 border-slate-800'}`}
+                  className={`flex items-center gap-4 p-4 rounded-xl border shadow-sm ${isWizardMode ? 'bg-amber-950/20 border-amber-500/20' : 'bg-slate-900/60 border-slate-800'}`}
                 >
                   <div className={`h-1.5 w-1.5 rounded-full shrink-0 ${isWizardMode ? 'bg-amber-500' : 'bg-primary-500'}`} />
                   <div>

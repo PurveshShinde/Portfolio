@@ -80,7 +80,7 @@ const About = () => {
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
             className={`
-              backdrop-blur-md rounded-2xl p-8 border shadow-sm transition-all duration-500
+              rounded-2xl p-8 border shadow-sm transition-all duration-500
               ${isWizardMode
                 ? 'bg-amber-950/30 border-amber-500/30 shadow-[0_0_30px_rgba(245,158,11,0.1)]'
                 : 'bg-slate-900/50 border-slate-800'}
@@ -110,7 +110,7 @@ const About = () => {
                 key={index}
                 variants={fadeInUp}
                 className={`
-                  text-center p-4 rounded-xl border backdrop-blur-sm
+                  text-center p-4 rounded-xl border
                   ${isWizardMode
                     ? 'bg-amber-950/20 border-amber-500/20'
                     : 'bg-slate-900/40 border-slate-700/50'}
@@ -140,7 +140,7 @@ const About = () => {
                 variants={fadeInUp}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 className={`
-                  flex flex-col items-center text-center p-6 backdrop-blur-md rounded-xl shadow-sm border transition-colors
+                  flex flex-col items-center text-center p-6 rounded-xl shadow-sm border transition-colors
                   ${isWizardMode
                     ? 'bg-amber-900/20 border-amber-500/20 hover:border-amber-400/50'
                     : 'bg-slate-900/50 border-slate-700 hover:border-primary-500/30'}
@@ -160,7 +160,7 @@ const About = () => {
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeInUp}
             className={`
-              mt-16 backdrop-blur-md rounded-2xl p-8 border shadow-lg transition-all
+              mt-16 rounded-2xl p-8 border shadow-lg transition-all
               ${isWizardMode
                 ? 'bg-purple-900/20 border-purple-500/30'
                 : 'bg-slate-900/60 border-primary-500/20'}

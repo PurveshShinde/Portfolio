@@ -423,7 +423,7 @@ const Terminal = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className={`fixed bottom-4 right-4 w-[calc(100vw-2rem)] md:w-[460px] h-[360px] rounded-xl bg-slate-950/95 shadow-2xl overflow-hidden border-2 font-mono text-[13px] sm:text-sm leading-relaxed flex flex-col backdrop-blur-md z-40
+            className={`fixed bottom-4 right-4 w-[calc(100vw-2rem)] md:w-[460px] h-[360px] rounded-xl bg-slate-950/95 shadow-2xl overflow-hidden border-2 font-mono text-[13px] sm:text-sm leading-relaxed flex flex-col z-40
               ${lumosActive ? 'border-yellow-500/40 shadow-yellow-500/20' : 'border-slate-700 shadow-xl'} transition-all duration-700`}
             onClick={handleContainerClick}
           >
