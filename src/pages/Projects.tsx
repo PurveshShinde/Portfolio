@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, Layers, Code, Brain, Users, Music } from 'lucide-react';
+import { Github, ExternalLink, Layers, Code, Brain, Users, Music, Server } from 'lucide-react';
 import { staggerContainer, fadeInUp } from '../utils/animations';
 import TiltCard from '../components/ui/TiltCard';
 import { useMagic } from '../context/MagicContext';
@@ -10,15 +10,43 @@ const Projects = () => {
 
   const PROJECTS_DATA = [
     {
-      title: "GitMatch — Developer Collaboration Platform",
-      category: "Ongoing Development",
+      title: "GitMatch (Final Year Project)",
+      category: "Developer Collaboration Platform",
       icon: Users,
       description: [
-        "GitMatch is an ongoing project focused on helping developers discover and connect with suitable teammates for projects based on skills and interests.",
-        "I am currently working on backend logic, REST API design, user onboarding flows, and database integration using a modular approach."
+        "Developed a real-time developer collaboration platform integrating external APIs for live matching.",
+        "Implemented Firebase Authentication with JWT-based authorization to secure APIs and user sessions.",
+        "Designed scalable MongoDB collections for user profiles and deployed the frontend seamlessly on Vercel."
       ],
-      techStack: ["Node.js", "Express", "MongoDB", "REST APIs"],
-      links: { code: null, live: "#" }
+      techStack: ["React", "Node.js", "Socket.io", "MongoDB", "JWT"],
+      links: { code: null, live: "https://gitmatch-delta.vercel.app/" }
+    },
+    {
+      title: "Taskify",
+      category: "MERN Stack | Production",
+      icon: Code,
+      description: [
+        "Engineered a production-ready full-stack task management application utilizing the MERN stack and TypeScript.",
+        "Integrated Google OAuth and role-based access control (RBAC) for secure, hierarchical user management.",
+        "Architected modular REST APIs to support a scalable client-server environment and real-time data flow."
+      ],
+      techStack: ["MERN", "TypeScript", "JWT", "OAuth", "Tailwind CSS"],
+      links: {
+        code: null,
+        live: "https://taskify-webapp-pro.vercel.app/"
+      }
+    },
+    {
+      title: "TaskPulse",
+      category: "Distributed System",
+      icon: Layers,
+      description: [
+        "Architected a distributed system comprising five containerized microservices orchestrated via Docker Compose.",
+        "Designed asynchronous event-driven communication using Redis as a message broker to decouple API services.",
+        "Configured GitHub Actions CI/CD pipelines to automate testing and validate multi-stage Docker builds."
+      ],
+      techStack: ["Python", "FastAPI", "Docker", "Redis", "PostgreSQL", "CI/CD"],
+      links: { code: "#", live: null } // Please update code link
     },
     {
       title: "Notes Management System",
@@ -31,7 +59,7 @@ const Projects = () => {
       techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
       links: {
         code: "https://github.com/PurveshShinde/Notes_Management_System",
-        live: "https://notes-management-system.rf.gd/index.php"
+        live: null
       }
     },
     {
@@ -43,7 +71,7 @@ const Projects = () => {
         "Worked in a team to design conversational workflows and integrate backend logic."
       ],
       techStack: ["Python", "Chatbot Logic", "Backend Integration"],
-      links: { code: null, live: null }
+      links: { code: "#", live: null }
     },
     {
       title: "Emotion-Based Music Recommendation",
@@ -60,17 +88,31 @@ const Projects = () => {
       }
     },
     {
-      title: "Taskify",
-      category: "MERN Stack | Production",
-      icon: Code,
+      title: "Spring Boot To-Do List",
+      category: "Full-Stack Web Application",
+      icon: Server,
       description: [
-        "A comprehensive task management system re-architected from a hackathon concept into a production-grade application.",
-        "Features secure JWT authentication, real-time collaboration, and type-safe architecture using TypeScript across the full stack."
+        "A clean, full-stack Task Management application featuring real-time task creation, completion toggling, inline editing, and deletion.",
+        "Built with clean architecture using Java 21, Spring Boot, Spring Data JPA, and an in-memory H2 database."
       ],
-      techStack: ["React", "TypeScript", "Node.js", "MongoDB", "Tailwind"],
+      techStack: ["Java 21", "Spring Boot", "H2 Database", "Tailwind CSS"],
       links: {
-        code: "https://github.com/PurveshShinde/Taskify",
-        live: "https://taskify-webapp-pro.vercel.app/"
+        code: "https://github.com/PurveshShinde/To-Do-List",
+        live: null
+      }
+    },
+    {
+      title: "Line Follower Robot Simulator",
+      category: "Robotics Simulation",
+      icon: Brain,
+      description: [
+        "Developed a Python-based PID controller to navigate a line-following robot inside a 3D simulated environment.",
+        "Integrated CoppeliaSim Edu with a custom bridge program to establish real-time communication between the Python logic and the robotic sensors."
+      ],
+      techStack: ["Python", "PID Control", "CoppeliaSim", "Socket.io"],
+      links: {
+        code: "https://github.com/PurveshShinde/Line-Follower-Simulator",
+        live: null
       }
     }
   ];

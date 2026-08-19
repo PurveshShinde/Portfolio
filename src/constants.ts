@@ -11,67 +11,87 @@ import {
 // 1️⃣ PROFILE — LOCKED ✅
 export const PROFILE: Profile = {
   name: "Purvesh Shinde",
-  title: "Java Software Developer | Fresher / Intern",
-  tagline: "Building clean, maintainable software systems with Java and strong CS fundamentals.",
+  title: "Software Developer",
+  tagline: "Computer Science graduate with hands-on experience in full-stack development, DevOps, and backend architecture.",
   about: [
-    "I am a Computer Science engineering student and Java Developer (Fresher / Intern level) with a strong foundation in core Java, object-oriented programming, and data structures.",
-    "I have worked on projects involving REST APIs and database integration, and I actively use AI tools to improve productivity while retaining full ownership of logic and design decisions.",
-    "I am currently seeking an entry-level Java Developer or Intern role to apply my backend knowledge and grow my skills in a professional environment."
+    "I am a Computer Science graduate with hands-on experience in full-stack development, DevOps, and backend architecture.",
+    "Proficient in Java, Python, and JavaScript with practical exposure to Git, Docker, and microservices. I have a strong foundation in Data Structures, Algorithms, and distributed systems design.",
+    "I actively use modern tools and methodologies to deliver robust, scalable solutions while retaining full ownership of logic and design decisions."
   ],
-  interests: ["Java", "Spring Boot (Learning)", "Backend Development", "Data Structures", "Problem Solving"]
+  interests: ["Full-Stack Development", "Backend Architecture", "DevOps", "Microservices", "System Design"]
 };
 
 // 2️⃣ CONTACT — LOCKED ✅
 export const CONTACT: Contact = {
   email: "shindepurvesh007@gmail.com",
-  phone: "+91 9307108947",
-  linkedin: "https://www.linkedin.com/in/purvesh-shinde-311270227",
+  phone: "+91-930-710-8047",
+  linkedin: "https://linkedin.com/in/purvesh-shinde",
   github: "https://github.com/PurveshShinde",
-  location: "Satara, India"
+  location: "Pune, India"
 };
 
 // 3️⃣ SKILLS — LOCKED ✅ (Matches Skills.tsx)
 export const SKILLS: SkillCategory[] = [
   {
-    category: "Primary Stack",
-    items: ["Java", "Object-Oriented Programming", "Data Structures", "Algorithms"]
+    category: "Programming Languages",
+    items: ["Java", "Python", "TypeScript", "JavaScript"]
   },
   {
-    category: "Supporting Languages",
-    items: ["JavaScript", "SQL (Basic)", "Python (Basic)"]
+    category: "Backend",
+    items: ["Spring Boot", "Node.js", "FastAPI", "REST APIs", "WebSockets"]
   },
   {
-    category: "Backend Fundamentals",
-    items: ["REST APIs", "Database Integration", "Authentication Basics", "Modular Code Design", "JSON / XML Processing"]
+    category: "Frontend/Mobile",
+    items: ["React.js", "Tailwind CSS", "Flutter"]
   },
   {
     category: "Databases",
-    items: ["MySQL", "Firebase Firestore"]
+    items: ["PostgreSQL", "MongoDB", "Redis", "MySQL"]
   },
   {
-    category: "Web Technologies",
-    items: ["HTML", "CSS", "React (Basic)", "React Native"]
+    category: "DevOps & Tools",
+    items: ["Docker", "GitHub Actions", "Git", "Linux", "CI/CD"]
   },
   {
-    category: "Tools & Workflow",
-    items: ["Git", "GitHub", "VS Code", "Postman", "AI-Assisted Development"]
-  },
-  {
-    category: "Learning Focus",
-    items: ["Spring Boot", "MongoDB (Learning)", "Java Backend Development"] // ✅ FIXED: Added "(Learning)" to match Skills.tsx
+    category: "Core Computer Science",
+    items: ["Object-Oriented Programming", "Data Structures & Algorithms", "DBMS", "Operating Systems", "Computer Networks"]
   }
 ];
 
 // 4️⃣ PROJECTS — LOCKED ✅ (Matches Projects.tsx)
 export const PROJECTS: Project[] = [
   {
-    title: "GitMatch — Developer Collaboration Platform", // ✅ FIXED: Full title to match Projects.tsx
-    category: "Collaboration Platform",
+    title: "GitMatch (Final Year Project)",
+    category: "Developer Collaboration Platform",
     description: [
-      "Helping developers discover teammates based on skills.",
-      "Developing backend logic and REST APIs using a modular approach."
+      "Developed a real-time developer collaboration platform integrating external APIs for live matching.",
+      "Implemented Firebase Authentication with JWT-based authorization to secure APIs and user sessions.",
+      "Designed scalable MongoDB collections for user profiles and deployed the frontend seamlessly on Vercel."
     ],
-    techStack: ["Node.js", "Express", "MongoDB (Learning)", "REST APIs"]
+    techStack: ["React", "Node.js", "Socket.io", "MongoDB", "JWT"],
+    link: "#" // Replace with actual Live Demo link
+  },
+  {
+    title: "Taskify",
+    category: "Full-Stack App",
+    description: [
+      "Engineered a production-ready full-stack task management application utilizing the MERN stack and TypeScript.",
+      "Integrated Google OAuth and role-based access control (RBAC) for secure, hierarchical user management.",
+      "Architected modular REST APIs to support a scalable client-server environment and real-time data flow."
+    ],
+    techStack: ["MERN", "TypeScript", "JWT", "OAuth", "Tailwind CSS"],
+    link: "#" // Replace with actual Live Demo link
+  },
+  {
+    title: "TaskPulse",
+    category: "Distributed System",
+    description: [
+      "Architected a distributed system comprising five containerized microservices orchestrated via Docker Compose.",
+      "Designed asynchronous event-driven communication using Redis as a message broker to decouple API services.",
+      "Configured GitHub Actions CI/CD pipelines to automate testing and validate multi-stage Docker builds."
+    ],
+    techStack: ["Python", "FastAPI", "Docker", "Redis", "PostgreSQL", "CI/CD"],
+    github: "#" // Replace with actual GitHub link
   },
   {
     title: "Notes Management System",
@@ -83,27 +103,49 @@ export const PROJECTS: Project[] = [
     techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"]
   },
   {
-    title: "Taskify",
-    category: "Production App",
+    title: "Spring Boot To-Do List",
+    category: "Full-Stack Web Application",
     description: [
-      "Task management system featuring secure authentication and real-time updates.",
-      "Built with type-safe architecture."
+      "A clean, full-stack Task Management application featuring real-time task creation, completion toggling, inline editing, and deletion.",
+      "Built with clean architecture using Java 21, Spring Boot, Spring Data JPA, and an in-memory H2 database."
     ],
-    techStack: ["React", "TypeScript", "Node.js", "MongoDB", "Tailwind"]
+    techStack: ["Java 21", "Spring Boot", "H2 Database", "Tailwind CSS"],
+    github: "https://github.com/PurveshShinde/To-Do-List"
+  },
+  {
+    title: "Line Follower Robot Simulator",
+    category: "Robotics Simulation",
+    description: [
+      "Developed a Python-based PID controller to navigate a line-following robot inside a 3D simulated environment.",
+      "Integrated CoppeliaSim Edu with a custom bridge program to establish real-time communication between the Python logic and the robotic sensors."
+    ],
+    techStack: ["Python", "PID Control", "CoppeliaSim", "Socket.io"],
+    github: "https://github.com/PurveshShinde/Line-Follower-Simulator"
   }
 ];
 
 // 5️⃣ EXPERIENCE — LOCKED ✅
 export const EXPERIENCE: Experience[] = [
   {
-    title: "AI/ML Intern (Team Lead)",
-    organization: "IBM (Edunet Foundation)",
-    period: "July – Aug 2024",
+    title: "Software Developer Intern",
+    organization: "Octane Cybersafe Pvt. Ltd.",
+    period: "Feb 2026 – Jun 2026",
     type: "Internship",
     description: [
-      "Coordinated a team of 4 to integrate backend logic for an AI-driven solution.",
-      "Designed API endpoints and managed data flow between services.",
-      "Gained hands-on experience with team collaboration and project delivery."
+      "Served as primary developer and lead tester on a production-grade cross-platform mobile security app (Flutter, Java), delivered on schedule.",
+      "Built and validated a threat-scoring engine evaluating app permissions, install source, and network activity to flag malicious apps.",
+      "Designed and tested a motion-based anti-theft feature using accelerometer/gyroscope data to detect device-snatching and trigger auto-lock; also tested APK/ZIP scanning and cache-cleaning utilities."
+    ]
+  },
+  {
+    title: "AI/ML Team Lead",
+    organization: "IBM SkillsBuild",
+    period: "Jul 2024 – Aug 2024",
+    type: "Internship",
+    description: [
+      "Led a 4-member team to design and integrate an interactive customer support chatbot into a custom e-commerce (coffee shop) web application.",
+      "Configured structured conversational pathways and decision trees using IBM Watson Assistant to guide users through multi-step service options.",
+      "Integrated the chatbot's REST APIs with the frontend, establishing a seamless client-server architecture for real-time query resolution."
     ]
   },
   {
@@ -120,9 +162,9 @@ export const EXPERIENCE: Experience[] = [
 // 6️⃣ EDUCATION — LOCKED ✅
 export const EDUCATION: Education[] = [
   {
-    institution: "Dnyanshree Institute of Engineering and Technology (DBATU)",
-    degree: "B.Tech Computer Science",
-    year: "Expected 2026"
+    institution: "Dnyanshree Institute of Engineering and Technology (DIET)",
+    degree: "Bachelor of Engineering in Computer Science & Engineering",
+    year: "Aug 2022 – Jul 2026"
   },
   {
     institution: "LBS College, Satara",
@@ -133,9 +175,8 @@ export const EDUCATION: Education[] = [
 
 // 7️⃣ CERTIFICATIONS — LOCKED ✅
 export const CERTIFICATIONS: Certification[] = [
-  // ⚠️ NOTE: Only use "Architecting" if your certificate explicitly says so.
-  // If it is the standard student course, "Cloud Foundations" is safer.
-  { name: "AWS Academy Graduate – Cloud Foundations", issuer: "AWS" },
-  { name: "Full Stack Java Developer", issuer: "Eduskills" },
-  { name: "Back-End Engineering Virtual Experience", issuer: "Lyft (Forage)" }
+  { name: "Red Hat (DO101) | Introduction to OpenShift Applications", issuer: "Red Hat" },
+  { name: "Red Hat (RH104) | Red Hat Linux Technical Overview", issuer: "Red Hat" },
+  { name: "Software Engineering Virtual Experience", issuer: "JPMorgan Chase (Forage)" },
+  { name: "The Complete JavaScript Course: From Zero to Expert", issuer: "Udemy" }
 ];

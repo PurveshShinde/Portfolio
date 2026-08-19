@@ -1,17 +1,15 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { Code, Server, GitBranch, BookOpen, Scroll, Wand2, Star, Sparkles } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { useMagic } from '../context/MagicContext';
+import { PROFILE } from '../constants';
 
 const About = () => {
   const { isWizardMode } = useMagic();
 
   // ✅ STANDARD TEXT (Concise, recruiter-friendly)
-  const STANDARD_ABOUT = [
-    "Java Developer (Fresher) with strong foundations in Core Java, OOP, Data Structures, and backend fundamentals.",
-    "Currently focused on Spring Boot and building real-world backend systems through hands-on projects."
-  ];
+  const STANDARD_ABOUT = PROFILE.about;
 
   // 🔮 WIZARD TEXT
   const WIZARD_ABOUT = [

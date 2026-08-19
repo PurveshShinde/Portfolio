@@ -25,17 +25,6 @@ const Experience = () => {
   // Journey Data
   const JOURNEY_DATA = [
     {
-      type: "Internship",
-      period: "July – August 2024",
-      title: "AI/ML Virtual Internship – Team Lead",
-      organization: "IBM (Edunet Foundation)",
-      description: [
-        "Participated in an AI/ML-focused virtual internship program at IBM, working as a team lead on a project-based assignment.",
-        "Contributed to backend-oriented workflows, API usage, and data processing logic, while coordinating tasks and collaborating with team members.",
-        "Gained experience in requirement analysis, debugging, testing, and applying standard software development practices during project execution."
-      ]
-    },
-    {
       type: "Project Experience",
       period: "2024",
       title: "Data Analytics Project",
@@ -43,6 +32,17 @@ const Experience = () => {
       description: [
         "Worked on a data analytics project involving data preprocessing, analysis, and visualization using Python-based tools.",
         "Handled dataset cleaning, basic transformations, and visual representation of insights, while collaborating with peers to interpret results effectively."
+      ]
+    },
+    {
+      type: "Virtual Internship",
+      period: "Jul 2024 – Aug 2024",
+      title: "AI/ML Team Lead",
+      organization: "IBM SkillsBuild",
+      description: [
+        "Led a 4-member team to design and integrate an interactive customer support chatbot into a custom e-commerce web application.",
+        "Configured structured conversational pathways and decision trees using IBM Watson Assistant.",
+        "Integrated the chatbot's REST APIs with the frontend for real-time query resolution."
       ]
     },
     {
@@ -54,6 +54,17 @@ const Experience = () => {
         "Participated in the Prabal Hackathon as part of a team to develop a functional prototype under strict time constraints.",
         "Contributed to backend logic, API integration, and overall problem-solving, while collaborating closely with teammates to deliver the solution."
       ]
+    },
+    {
+      type: "Internship",
+      period: "Feb 2026 – Jun 2026",
+      title: "Software Developer Intern",
+      organization: "Octane Cybersafe Pvt. Ltd.",
+      description: [
+        "Served as primary developer and lead tester on a production-grade cross-platform mobile security app (Flutter, Java), delivered on schedule.",
+        "Built and validated a threat-scoring engine evaluating app permissions, install source, and network activity to flag malicious apps.",
+        "Designed and tested a motion-based anti-theft feature using accelerometer/gyroscope data to detect device-snatching and trigger auto-lock."
+      ]
     }
   ];
 
@@ -62,7 +73,7 @@ const Experience = () => {
     {
       degree: "B.Tech in Computer Science",
       institution: "Dnyanshree Institute of Engineering and Technology (DBATU)",
-      year: "2022 – 2026 (Expected)"
+      year: "2022 – 2026 (Graduated)"
     },
     {
       degree: "Higher Secondary Certificate (HSC)",

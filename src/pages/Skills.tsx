@@ -25,44 +25,34 @@ const Skills = () => {
   // ✅ SKILLS DATA: Standard Text, Conditional Icons
   const SKILLS_DATA = [
     {
-      category: "Primary Stack",
+      category: "Programming Languages",
       icon: isWizardMode ? Scroll : Terminal,
-      items: ["Java", "Object-Oriented Programming", "Data Structures", "Algorithms"]
+      items: ["Java", "Python", "TypeScript", "JavaScript"]
     },
     {
-      category: "Supporting Languages",
-      icon: isWizardMode ? Hexagon : Cpu,
-      items: ["JavaScript", "SQL (Basic)", "Python (Basic)"]
-    },
-    {
-      category: "Backend Fundamentals",
+      category: "Backend",
       icon: Server,
-      items: ["REST APIs", "Database Integration", "Authentication Basics", "Modular Code Design", "JSON / XML Processing"]
+      items: ["Spring Boot", "Node.js", "FastAPI", "REST APIs", "WebSockets"]
+    },
+    {
+      category: "Frontend/Mobile",
+      icon: isWizardMode ? Sparkles : Globe,
+      items: ["React.js", "Tailwind CSS", "Flutter"]
     },
     {
       category: "Databases",
       icon: Database,
-      items: ["MySQL", "Firebase Firestore"]
+      items: ["PostgreSQL", "MongoDB", "Redis", "MySQL"]
     },
     {
-      category: "Web Technologies",
-      icon: isWizardMode ? Sparkles : Globe,
-      items: ["HTML", "CSS", "React (Basic)", "React Native"]
-    },
-    {
-      category: "Data & Analytics",
-      icon: BarChart,
-      items: ["Pandas", "Data Preprocessing", "Data Visualization", "Power BI"]
-    },
-    {
-      category: "Tools & Development",
+      category: "DevOps & Tools",
       icon: isWizardMode ? Wand2 : GitBranch,
-      items: ["Git", "GitHub", "VS Code", "Postman"]
+      items: ["Docker", "GitHub Actions", "Git", "Linux", "CI/CD"]
     },
     {
-      category: "Learning Focus",
+      category: "Core Computer Science",
       icon: BookOpen,
-      items: ["Spring Boot", "MongoDB (Learning)", "Java Backend Development"]
+      items: ["Object-Oriented Programming", "Data Structures & Algorithms", "DBMS", "Operating Systems", "Computer Networks"]
     },
     {
       category: "Spoken Languages",

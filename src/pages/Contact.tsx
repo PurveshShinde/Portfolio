@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { CONTACT } from '../constants';
-import { Mail, Phone, MapPin, Linkedin, Github, Send, Loader2, CheckCircle, AlertCircle, Scroll, Skull } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Send, Loader2, CheckCircle, AlertCircle, Scroll } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import TiltCard from '../components/ui/TiltCard';
 import { useMagic } from '../context/MagicContext';

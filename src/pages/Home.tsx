@@ -2,7 +2,7 @@ import { Download, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PROFILE } from '../constants';
 import { fadeInUp, staggerContainer } from '../utils/animations';
-import resumePdf from "../components/assets/Purvesh Shinde_Resume_Java.pdf";
+import resumePdf from "../components/assets/Purvesh_Shinde_Development.pdf";
 import { useMagic } from '../context/MagicContext';
 
 const Home = () => {
@@ -17,8 +17,8 @@ const Home = () => {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        // UPDATED HERE: Changed '-mt-16' to '-mt-32' to pull it up significantly more
-        className="text-center max-w-3xl mx-auto z-10 relative md:-mt-32"
+        // UPDATED HERE: Removed negative margin to center the content
+        className="text-center max-w-3xl mx-auto z-10 relative"
       >
         {/* Global Acknowledgment Text */}
         <AnimatePresence>
@@ -115,7 +115,7 @@ const Home = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-0"
+        className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-0"
       >
         <span className={`text-[10px] tracking-[0.2em] uppercase ${isWizardMode ? 'text-amber-500/50' : 'text-slate-600'}`}>
           Scroll Down

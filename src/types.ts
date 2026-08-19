@@ -28,6 +28,8 @@ export interface Project {
     category: string;
     description: string[];
     techStack: string[];
+    link?: string;
+    github?: string;
 }
 
 export interface Experience {
