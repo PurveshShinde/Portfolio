@@ -81,6 +81,9 @@ const Terminal = () => {
       `Welcome, Visitor. Backend System ready.`
     ];
 
+    // Log the secret hint to the browser's developer console
+    console.log("%c⚡ Mischief Managed? Try typing 'lumos' in the site terminal to light the way.", "color: #fcd34d; font-size: 14px; font-weight: bold; background: #1e293b; padding: 4px; border-radius: 4px;");
+
     let currentDelay = 0;
     bootLines.forEach((line, index) => {
       currentDelay += 300 + Math.random() * 200;
@@ -230,8 +233,7 @@ const Terminal = () => {
     ),
     whoami: () => <span className="text-emerald-400 font-bold">guest@portfolio-backend</span>,
     hint: () => {
-      console.log("%c⚡ Mischief Managed? Try 'lumos' to light the way.", "color: #fcd34d; font-size: 14px; font-weight: bold; background: #1e293b; padding: 4px; border-radius: 4px;");
-      return <span className="text-slate-500 italic">Check the developer console...</span>;
+      return <span className="text-yellow-500 italic">⚡ Try typing 'lumos' to light your way...</span>;
     },
     nox: () => {
       castNox(); // ✅ Trigger Global Nox

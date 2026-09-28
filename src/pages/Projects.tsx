@@ -19,7 +19,7 @@ const Projects = () => {
         "Designed scalable MongoDB collections for user profiles and deployed the frontend seamlessly on Vercel."
       ],
       techStack: ["React", "Node.js", "Socket.io", "MongoDB", "JWT"],
-      links: { code: null, live: "https://gitmatch-delta.vercel.app/" }
+      links: { code: "https://github.com/PurveshShinde/GitMatch", live: "https://gitmatch-delta.vercel.app/" }
     },
     {
       title: "Taskify",
@@ -32,46 +32,9 @@ const Projects = () => {
       ],
       techStack: ["MERN", "TypeScript", "JWT", "OAuth", "Tailwind CSS"],
       links: {
-        code: null,
+        code: "https://github.com/PurveshShinde/Taskify",
         live: "https://taskify-webapp-pro.vercel.app/"
       }
-    },
-    {
-      title: "TaskPulse",
-      category: "Distributed System",
-      icon: Layers,
-      description: [
-        "Architected a distributed system comprising five containerized microservices orchestrated via Docker Compose.",
-        "Designed asynchronous event-driven communication using Redis as a message broker to decouple API services.",
-        "Configured GitHub Actions CI/CD pipelines to automate testing and validate multi-stage Docker builds."
-      ],
-      techStack: ["Python", "FastAPI", "Docker", "Redis", "PostgreSQL", "CI/CD"],
-      links: { code: "#", live: null } // Please update code link
-    },
-    {
-      title: "Notes Management System",
-      category: "Full-Stack Web Application",
-      icon: Layers,
-      description: [
-        "A web-based notes management system designed to create, update, categorize, and manage personal notes with clean separation of concerns.",
-        "The application includes user authentication, category management, and complete CRUD functionality."
-      ],
-      techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
-      links: {
-        code: "https://github.com/PurveshShinde/Notes_Management_System",
-        live: null
-      }
-    },
-    {
-      title: "Mental Health Care Chatbot",
-      category: "Prabal Hackathon",
-      icon: Brain,
-      description: [
-        "Developed a chatbot-based application during the Prabal Hackathon to assist users with mental health-related queries.",
-        "Worked in a team to design conversational workflows and integrate backend logic."
-      ],
-      techStack: ["Python", "Chatbot Logic", "Backend Integration"],
-      links: { code: "#", live: null }
     },
     {
       title: "Emotion-Based Music Recommendation",
@@ -88,33 +51,30 @@ const Projects = () => {
       }
     },
     {
-      title: "Spring Boot To-Do List",
+      title: "Notes Management System",
       category: "Full-Stack Web Application",
-      icon: Server,
+      icon: Layers,
       description: [
-        "A clean, full-stack Task Management application featuring real-time task creation, completion toggling, inline editing, and deletion.",
-        "Built with clean architecture using Java 21, Spring Boot, Spring Data JPA, and an in-memory H2 database."
+        "A web-based notes management system designed to create, update, categorize, and manage personal notes with clean separation of concerns.",
+        "The application includes user authentication, category management, and complete CRUD functionality."
       ],
-      techStack: ["Java 21", "Spring Boot", "H2 Database", "Tailwind CSS"],
+      techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
       links: {
-        code: "https://github.com/PurveshShinde/To-Do-List",
-        live: null
+        code: "https://github.com/PurveshShinde/Notes_Management_System",
+        live: "https://notes-management-system-z2wu.onrender.com/index.php"
       }
     },
     {
-      title: "Line Follower Robot Simulator",
-      category: "Robotics Simulation",
+      title: "Mental Health Care Chatbot",
+      category: "Prabal Hackathon",
       icon: Brain,
       description: [
-        "Developed a Python-based PID controller to navigate a line-following robot inside a 3D simulated environment.",
-        "Integrated CoppeliaSim Edu with a custom bridge program to establish real-time communication between the Python logic and the robotic sensors."
+        "Developed a chatbot-based application during the Prabal Hackathon to assist users with mental health-related queries.",
+        "Worked in a team to design conversational workflows and integrate backend logic."
       ],
-      techStack: ["Python", "PID Control", "CoppeliaSim", "Socket.io"],
-      links: {
-        code: "https://github.com/PurveshShinde/Line-Follower-Simulator",
-        live: null
-      }
-    }
+      techStack: ["Python", "Chatbot Logic", "Backend Integration"],
+      links: { code: "https://github.com/PurveshShinde/mental-health-care-chatbot", live: null }
+    },
   ];
 
   return (
@@ -165,27 +125,25 @@ const Projects = () => {
 
                   <div className="relative z-10 flex flex-col h-full justify-between">
                     <div>
-                      <div className="flex items-center justify-between mb-6">
-                        <div className={`p-3 rounded-2xl ${isWizardMode ? 'bg-amber-900/40' : 'bg-slate-800'}`}>
-                          <project.icon className={`h-6 w-6 ${isWizardMode ? 'text-amber-400' : 'text-primary-400'}`} />
+                      {/* Top Bar: Icon + Category */}
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className={`p-3 rounded-2xl ${isWizardMode ? 'bg-amber-900/40 text-amber-400' : 'bg-primary-500/10 text-primary-400'}`}>
+                          <project.icon className="h-6 w-6" />
                         </div>
-                        <span className={`text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full ${isWizardMode ? 'bg-amber-900/30 text-amber-200' : 'bg-slate-800 text-slate-400'}`}>
+                        <span className={`text-sm font-medium tracking-wide ${isWizardMode ? 'text-amber-500/80' : 'text-primary-500/80'}`}>
                           {project.category}
                         </span>
                       </div>
 
+                      {/* Title */}
                       <h3 className={`text-2xl font-bold mb-4 transition-colors ${isWizardMode ? 'text-amber-100 group-hover:text-amber-400' : 'text-white group-hover:text-primary-400'}`}>
                         {project.title}
                       </h3>
 
-                      <div className="space-y-3 mb-8">
-                        {project.description.map((desc, i) => (
-                          <p key={i} className={`text-sm leading-relaxed flex items-start ${isWizardMode ? 'text-amber-200/70' : 'text-slate-300'}`}>
-                            <span className={`mr-2 mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0 ${isWizardMode ? 'bg-amber-500' : 'bg-primary-500'}`} />
-                            {desc}
-                          </p>
-                        ))}
-                      </div>
+                      {/* Clean Description */}
+                      <p className={`text-sm leading-relaxed mb-8 ${isWizardMode ? 'text-amber-200/70' : 'text-slate-400'}`}>
+                        {project.description.join(" ")}
+                      </p>
                     </div>
 
                     <div>
