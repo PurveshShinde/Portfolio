@@ -1,4 +1,4 @@
-# <img src="https://github.com/PurveshShinde.png" width="35" align="center" style="border-radius: 50%" /> Purvesh Shinde - Developers Portfolio
+# <img src="https://wsrv.nl/?url=github.com/PurveshShinde.png&mask=circle" width="35" height="35" align="center" /> Purvesh Shinde - Developer Portfolio
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=700&color=00F7FF&center=false&vCenter=true&width=800&lines=Welcome+to+my+Portfolio+Source+Code!;Built+with+React,+Three.js+%26+Tailwind;Interactive+3D+Web+Experience" alt="Typing SVG" />
 
