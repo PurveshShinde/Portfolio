@@ -61,7 +61,7 @@ const Projects = () => {
       techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
       links: {
         code: "https://github.com/PurveshShinde/Notes_Management_System",
-        live: "https://notes-management-system-z2wu.onrender.com/index.php"
+        live: "https://notes-management-system-beae.onrender.com/"
       }
     },
     {

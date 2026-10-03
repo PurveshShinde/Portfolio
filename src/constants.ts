@@ -100,7 +100,8 @@ export const PROJECTS: Project[] = [
       "Web-based system for managing personal notes with CRUD functionality.",
       "Implemented using clean separation of concerns."
     ],
-    techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"]
+    techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+    link: "https://notes-management-system-beae.onrender.com/"
   },
   {
     title: "Spring Boot To-Do List",
